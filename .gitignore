@@ -6,4 +6,3 @@ tmp/**/*
 *.swo
 config/database.yml
 .DS_Store
-public/stylesheets/style.css
