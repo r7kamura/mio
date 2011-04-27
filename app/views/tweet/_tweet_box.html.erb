@@ -1,6 +1,6 @@
 <div class="tweetBox">
-  <%= form_tag({:action => :create}, :remote => true) do %>
-    <%= text_area_tag :body %>
+  <%= form_tag({:action => :create, :since_id => @tweets.first.id}) do %>
+    <%= text_area_tag :body %></br>
     <%= submit_tag "Post" %>
   <% end %>
 </div>

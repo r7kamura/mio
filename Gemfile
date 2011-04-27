@@ -5,3 +5,4 @@ gem 'mysql2'
 
 gem "devise"
 gem "jquery-rails"
+gem "sass"

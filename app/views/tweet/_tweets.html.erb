@@ -1,11 +1,5 @@
 <div class="tweets">
   <ul>
-    <% @tweets.each do |t| %>
-    <li>
-      <%= t.body %><br />
-      by <%= t.user.screen_name %><br />
-      <%= time_ago_in_words t.created_at %> ago
-    </li>
-    <% end %>
+    <%= render :partial => "tweet_lists" %>
   </ul>
 </div>

@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
 
   has_many :tweets
 
-  validates :screen_name, :uniqueness => true
   validates :email, :presence => true, :uniqueness => true#, :email_format => true
 
   def tweet(body)
