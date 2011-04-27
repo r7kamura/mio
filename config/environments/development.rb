@@ -22,5 +22,8 @@ Mio::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
+  # devise (In production this must be the actual host)
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
 
