@@ -11,11 +11,13 @@ class TweetController < ApplicationController
   end
 
   def show
-    @tweet = Tweet.find(params[:id])
+    @tweet = Tweet.find(params[:id].to_i)
   end
 
   def create
     tweet = Tweet.new(:body => params[:body], :user => current_user)
-    render :text => "OK" if tweet.save
+    tweet.save
+    redirect_to :root
   end
+
 end
