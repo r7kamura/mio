@@ -13,4 +13,8 @@ class TweetController < ApplicationController
     @tweet = Tweet.find(params[:id])
     #redirect_to 404 unless @tweet
   end
+
+  def create
+    render :text => "OK"
+  end
 end
