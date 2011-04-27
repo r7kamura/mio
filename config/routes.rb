@@ -1,4 +1,6 @@
 Mio::Application.routes.draw do
+  get "user/logout"
+
   devise_for :users
 
   get "tweet/home"
