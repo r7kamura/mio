@@ -15,6 +15,7 @@ class TweetController < ApplicationController
   end
 
   def create
-    render :text => "OK"
+    tweet = Tweet.new(:body => params[:body], :user => current_user)
+    render :text => "OK" if tweet.save
   end
 end
