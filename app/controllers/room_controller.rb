@@ -4,7 +4,7 @@ class RoomController < ApplicationController
 
   def show
     @room = Room.where(:name => params[:name]).first
-    redirect_to root unless @room
+    redirect_to :root unless @room
 
     @room_id = @room.id
     @tweets = @room.tweets.timeline
