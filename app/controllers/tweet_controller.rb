@@ -1,13 +1,16 @@
 class TweetController < ApplicationController
   def home
-    @tweets = Tweet.friend_timeline(session[:self]).regular_limit
+    @tweets = Tweet.timeline
   end
 
   def user
-    @tweets = Tweet.user_timeline.regular_limit
+    user = User.where(:screen_name => params[:user]).first
+    # redirect_to 404 unless user
+    @tweets = Tweet.user(user).timeline
   end
 
   def show
     @tweet = Tweet.find(params[:id])
+    #redirect_to 404 unless @tweet
   end
 end

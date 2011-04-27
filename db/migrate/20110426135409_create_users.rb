@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :screen_name
       t.string :profile_image_url
-      t.string :mail_address
+      t.string :email
 
       t.timestamps
     end

@@ -1,5 +1,7 @@
 Mio::Application.routes.draw do
-  get "tweet/index"
+  get "tweet/home"
+  post "tweet/create"
+  root :to => "tweet#home"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

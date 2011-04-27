@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20110426144346) do
   create_table "users", :force => true do |t|
     t.string   "screen_name"
     t.string   "profile_image_url"
-    t.string   "mail_address"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
