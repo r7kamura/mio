@@ -15,9 +15,12 @@ class TweetController < ApplicationController
   end
 
   def create
-    tweet = Tweet.new(:body => params[:body], :user => current_user)
-    tweet.save
-    redirect_to :root
+    Tweet.create(:body => params[:body], :user => current_user, :room_id => params[:room_id])
+    if params[:body] =~ /(?:\s+|^)&(\w.*)\s+/
+      Room.create(:name => $~[1], :user => current_user)
+    end
+
+    redirect_to request.referer
   end
 
 end

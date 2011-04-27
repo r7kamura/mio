@@ -1,11 +1,11 @@
 Mio::Application.routes.draw do
-  get "user/logout"
-
-  devise_for :users
-
+  get "room/index"
+  get "room/show"
   get "tweet/home"
   post "tweet/create"
   root :to => "tweet#home"
+
+  devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

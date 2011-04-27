@@ -1,5 +1,6 @@
 <div class="tweetBox">
-  <%= form_tag(:action => :create) do %>
+  <%= form_tag(:controller => :tweet, :action => :create) do %>
+    <%= hidden_field_tag :room_id, @room_id %>
     <%= text_area_tag :body %></br>
     <%= submit_tag "Post" %>
     <p id="countUp">0</p>
