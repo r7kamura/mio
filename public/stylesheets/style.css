@@ -50,8 +50,12 @@ body {
   -webkit-border-radius: 20px; }
 
 .tweetBox textarea#body {
-  width: 600px;
+  width: 100%;
   height: 50px;
+  font-size: 120%; }
+
+.tweetBox #countUp {
+  float: right;
   font-size: 120%; }
 
 .tweets li {

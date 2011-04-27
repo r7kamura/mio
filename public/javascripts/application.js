@@ -1,18 +1,14 @@
-// Ajax update in Rails 3
+$(function(){
+     $("textarea").keyup(function(){
+          var counter = $(this).val().length;
+        $("#countUp").text(counter);
+        if (counter == 0) {
+            $("#countUp").text("0");
+        } else if (counter >= 140) {
+            $("#countUp").css("color","red");
+        } else {
+          $("#countUp").css("color","#666");
+        }
+    });
+});
 
-var bindRemote = function(selector) {
-  $(selector)
-    .click(function(){
-      $(this).hide();
-      $('<img src="/images/loading.gif" class="loading"/>').insertAfter($(this));
-    });
-  $(selector)
-    .bind("ajax:success", function(evt, data, status, xhr){
-      $(this)
-        .replaceWith(data)
-        .fadeIn();
-      bindRemote(selector);
-      $(".loading").fadeOut();
-    });
-  $('.images a').lightBox();
-};
