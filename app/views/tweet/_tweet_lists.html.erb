@@ -1,9 +1,11 @@
 <% @tweets.each do |t| %>
-<li>
+  <li>
   <div class="icon" style="background-color:<%= random_color(t.user.email) %>"></div>
-  <p class="body"><%= t.body %></p>
-  <p class="user">by <%= t.user.screen_name || t.user.email %></p>
-  <p class="time"><%= time_ago_in_words t.created_at %> ago</p>
+  <div class="description">
+    <p class="body"><%= t.body %></p>
+    <p class="user">by <%= t.user.screen_name || t.user.email %></p>
+    <p class="time"><%= time_ago_in_words t.created_at %> ago</p>
+  </div>
   <hr class="defloat" />
-</li>
+  </li>
 <% end %>
