@@ -1,5 +1,6 @@
 class Tweet < ActiveRecord::Base
   belongs_to :user
+  belongs_to :room
 
   validates :body, :presence => true, :uniqueness => {:scope => :user_id}
 

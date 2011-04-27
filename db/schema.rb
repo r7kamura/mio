@@ -10,13 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110427063104) do
+ActiveRecord::Schema.define(:version => 20110427153412) do
+
+  create_table "rooms", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tweets", :force => true do |t|
     t.text     "body"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "room_id"
   end
 
   create_table "users", :force => true do |t|

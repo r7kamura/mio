@@ -45,18 +45,25 @@ a { text-decoration: none; }
 }
 body { background-color:#F8E8F2; }
 
-#header { background-color:black; height:40px; color:white; margin-bottom:20px; }
-#header h1 { float:left; font-size:20px; line-height:2.0; font-weight:normal; color:#53CCFF; }
-#header .user { float:right; font-size:20px; line-height:2.0; font-weight:normal; }
+#header {
+  background-color:black; height:40px; color:white; margin-bottom:20px;
+  h1 { float:left; font-size:20px; line-height:2.0; font-weight:normal; color:#53CCFF; }
+  .user { float:right; font-size:20px; line-height:2.0; font-weight:normal; }
+}
 
 #main .inner { background-color:white; padding:20px; @include rounded; }
-.tweetBox textarea#body { width:100%; height:50px; font-size:120%; }
-.tweetBox #countUp { float:right; font-size:120%; }
 
-.tweets li { padding:5px 0; margin:5px 0; border-bottom:solid 1px #eee; }
-.tweets li:last-child { border-bottom:0; }
-.tweets .user { font-size:80%; color:#7299C1; }
-.tweets .time { font-size:80%; color:#ccc; }
-.tweets .icon { float:left; margin-right:20px; width:50px; height:50px;}
+.tweetBox {
+  textarea#body { width:100%; height:60px; font-size:120%; }
+  #countUp { float:right; font-size:120%; }
+}
+
+.tweets {
+  .user { font-size:80%; color:#7299C1; }
+  .time { font-size:80%; color:#ccc; }
+  .icon { float:left; margin-right:20px; width:50px; height:50px;}
+  li { padding:5px 0; margin:5px 0; border-bottom:solid 1px #eee; }
+  li:last-child { border-bottom:0; }
+ }
 
 #footer { text-align:center; margin:20px 0; }
