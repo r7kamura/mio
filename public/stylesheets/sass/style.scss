@@ -47,9 +47,10 @@ body { background-color:#F8E8F2; }
 html { margin-bottom:1px; height:100%; overflow-y:scroll }
 
 #header {
-  background-color:black; height:40px; color:white; margin-bottom:20px;
-  h1 { float:left; font-size:20px; line-height:2.0; color:#53CCFF; @include link_color(#53CCFF) }
-  .user { float:right; font-size:20px; line-height:2.0; font-weight:bold; }
+  background-color:black; height:40px; color:white; margin-bottom:20px; font-size:20px; line-height:2.0; font-weight:bold;
+  h1 { float:left; color:#53CCFF; @include link_color(#53CCFF); font-size:20px; line-height:2.0; }
+  .room { float:left; padding-left:200px; }
+  .user { float:right; }
 }
 
 #main .inner { background-color:white; padding:20px; @include rounded; }
@@ -66,6 +67,13 @@ html { margin-bottom:1px; height:100%; overflow-y:scroll }
   .time { font-size:80%; color:#ccc; }
   li { padding:5px 0; margin:5px 0; border-bottom:solid 1px #eee; }
   li:last-child { border-bottom:0; }
- }
+}
+
+.rooms {
+  .user { font-size:80%; color:#7299C1; }
+  .time { font-size:80%; color:#ccc; }
+  li { padding:5px 0; margin:5px 0; border-bottom:solid 1px #eee; }
+  li:last-child { border-bottom:0; }
+}
 
 #footer { text-align:center; margin:20px 0; }
