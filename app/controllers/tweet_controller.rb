@@ -30,9 +30,24 @@ class TweetController < ApplicationController
   end
 
   def delete
-    tweet = Tweet.find(params[:id].to_i)
+    tweet = Tweet.find(params[:id])
     if tweet && tweet.user == current_user
       tweet.delete
+    end
+    redirect_to request.referer
+  end
+
+  def favorite
+    tweet = Tweet.find(params[:id])
+    Favorite.create(:tweet_id => tweet.id, :user_id => current_user.id)
+    redirect_to request.referer
+  end
+
+  def unfavorite
+    tweet = Tweet.find(params[:id])
+    favorite = Favorite.where(:tweet_id => tweet.id, :user_id => current_user.id).first
+    if favorite
+      favorite.delete
     end
     redirect_to request.referer
   end

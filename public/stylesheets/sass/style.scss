@@ -72,6 +72,7 @@ html { margin-bottom:1px; height:100%; overflow-y:scroll }
     font-size:80%; color:#ccc; float:left; @include link_color(#ccc);
     span { margin-right:5px; }
     span:hover { color:black; cursor:pointer; }
+    .unfavorite { @include link_color(#FFC66D) }
   }
   li { padding:5px 0; margin:5px 0; border-bottom:solid 1px #eee; }
   li:last-child { border-bottom:0; }

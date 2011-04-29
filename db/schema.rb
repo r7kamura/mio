@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110429024137) do
+ActiveRecord::Schema.define(:version => 20110429122901) do
+
+  create_table "favorites", :force => true do |t|
+    t.integer  "tweet_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "hash_tag_tweets", :force => true do |t|
     t.integer  "hash_tag_id"
