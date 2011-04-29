@@ -1,8 +1,10 @@
 <% @tweets.each do |t| %>
   <li>
-  <a class="icon" style="background-color:<%= random_color(t.user.email) %>" href="<%= url_for(:controller => :user, :action => :timeline, :id => t.user.id) %>">
-    <%= image_tag t.user.profile_image_url, :size => "50x50" if t.user.profile_image_url %>
-  </a>
+  <% user = t.user %>
+  <%= link_to user.profile_image_url ? image_tag(user.profile_image_url, :size => "50x50") : "",
+    {:controller => :user, :action => :timeline, :id => user.id},
+    :style => "background-color:" + random_color(user.email),
+    :class => :icon %>
   <div class="description">
     <p class="body"><%= linkify t.body %></p>
     <p class="user">by <%= link_to t.user.screen_name || t.user.email, :controller => :user, :action => :timeline, :id => t.user.id %></p>
