@@ -1,6 +1,8 @@
 <% @tweets.each do |t| %>
   <li>
-  <div class="icon" style="background-color:<%= random_color(t.user.email) %>"></div>
+  <div class="icon" style="background-color:<%= random_color(t.user.email) %>">
+    <%= image_tag t.user.profile_image_url, :size => "50x50" if t.user.profile_image_url %>
+  </div>
   <div class="description">
     <p class="body"><%= linkify t.body %></p>
     <p class="user">by <%= t.user.screen_name || t.user.email %></p>

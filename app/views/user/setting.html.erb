@@ -1,0 +1,16 @@
+<h3>Setting</h3>
+<%= form_tag :action => :update do %>
+<table>
+  <tr>
+    <td>screen_name</td>
+    <td><%= text_field_tag :screen_name, @user.screen_name %></td>
+  </tr>
+  <tr>
+    <td>profile_image_url</td>
+    <td><%= text_field_tag :profile_image_url, @user.profile_image_url, :size => 80 %></td>
+  </tr>
+</table>
+<%= submit_tag "OK" %>
+<% end %>
+
+<%= flash[:message] %>

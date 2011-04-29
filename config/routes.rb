@@ -1,6 +1,7 @@
 Mio::Application.routes.draw do
   get "hash_tag/show"
-  get "user/config"
+  get "user/setting"
+  post "user/update"
   get "room/index"
   get "room/show"
   get "tweet/home"
