@@ -11,7 +11,7 @@
     <span class="reply">Reply</span>
     <span class="retweet">RT</span>
     <% if t.user == current_user %>
-      <span class="delete"><%= link_to "Del", {:action => :delete, :id => t.id}, :method => "POST", :confirm => "remove?" %></span>
+      <span class="delete"><%= link_to "Del", {:controller => :tweet, :action => :delete, :id => t.id}, :method => "POST", :confirm => "remove?" %></span>
     <% else %>
       <span class="favorite">Fav</span>
     <% end %>
