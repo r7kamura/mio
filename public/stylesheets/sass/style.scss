@@ -68,6 +68,7 @@ html { margin-bottom:1px; height:100%; overflow-y:scroll }
   .description { overflow:hidden; }
   .user { font-size:80%; color:#7299C1; @include link_color(#7299C1); }
   .time { font-size:80%; color:#ccc; float:left; margin-right:20px; }
+  ._body { display:none; }
   .buttons {
     font-size:80%; color:#ccc; float:left; @include link_color(#ccc);
     span { margin-right:5px; }

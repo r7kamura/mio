@@ -1,5 +1,5 @@
 <% @tweets.each do |t| %>
-  <li>
+  <li class="tweet">
   <%= user_icon(t.user) %>
   <div class="description">
     <p class="body"><%= linkify t.body %></p>

@@ -1,7 +1,7 @@
 $(function(){
   // focus tweet-box
   var tweetBox = $(".tweetBox textarea");
-  tweetBox && tweetBox.focus();
+  tweetBox.focus();
 
   // countup tweet-box
   $(".tweetBox textarea").keyup(function(){
@@ -15,5 +15,24 @@ $(function(){
       $("#countUp").css("color","#666");
     }
   });
+
+  // RT & Reply
+  var moveToTweetBox = function(){
+    $('html,body').animate({ scrollTop: $("#header").offset().top }, 'slow','swing');
+    window.setTimeout(function(){ tweetBox.focus(); }, 1000);
+  };
+  $(".tweet").each(function(){
+    var text = $(this).find(".body").text();
+    var user = $(this).find(".user a").text();
+    $(this).find(".retweet").click(function(){
+      tweetBox.text("RT @" + user + " " + text);
+      moveToTweetBox();
+    });
+    $(this).find(".reply").click(function(){
+      tweetBox.text("@" + user + " ");
+      moveToTweetBox();
+    });
+  });
+
 });
 
