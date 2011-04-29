@@ -1,6 +1,8 @@
 class Tweet < ActiveRecord::Base
   belongs_to :user
   belongs_to :room
+  has_many :hash_tag_tweets
+  has_many :hash_tags, :through => :hash_tag_tweets
 
   validates :body, :presence => true, :uniqueness => {:scope => :user_id}
 

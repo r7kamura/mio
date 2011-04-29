@@ -2,9 +2,15 @@
   <li>
   <div class="icon" style="background-color:<%= random_color(t.user.email) %>"></div>
   <div class="description">
-    <p class="body"><%= linkify_room t.body %></p>
+    <p class="body"><%= linkify t.body %></p>
     <p class="user">by <%= t.user.screen_name || t.user.email %></p>
     <p class="time"><%= time_ago_in_words t.created_at %> ago</p>
+    <p class="buttons">
+    <span class="reply">Reply</span>
+    <span class="retweet">RT</span>
+    <span class="favorite">Fav</span>
+    <span class="delete">Del</span>
+    </p>
   </div>
   <hr class="defloat" />
   </li>

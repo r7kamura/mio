@@ -50,7 +50,10 @@ html { margin-bottom:1px; height:100%; overflow-y:scroll }
   background-color:black; height:40px; color:white; margin-bottom:20px; font-size:20px; line-height:2.0; font-weight:bold;
   h1 { float:left; color:#53CCFF; @include link_color(#53CCFF); font-size:20px; line-height:2.0; }
   .room { float:left; padding-left:200px; }
-  .user { float:right; }
+  .user {
+    float:right;
+    span { margin-right:20px; }
+  }
 }
 
 #main .inner { background-color:white; padding:20px; @include rounded; }
@@ -64,7 +67,12 @@ html { margin-bottom:1px; height:100%; overflow-y:scroll }
   .icon { float:left; margin-right:20px; width:50px; height:50px;}
   .description { overflow:hidden; }
   .user { font-size:80%; color:#7299C1; }
-  .time { font-size:80%; color:#ccc; }
+  .time { font-size:80%; color:#ccc; float:left; margin-right:20px; }
+  .buttons {
+    font-size:80%; color:#ccc; float:left;
+    span { margin-right:5px; }
+    span:hover { color:black; cursor:pointer; }
+  }
   li { padding:5px 0; margin:5px 0; border-bottom:solid 1px #eee; }
   li:last-child { border-bottom:0; }
 }

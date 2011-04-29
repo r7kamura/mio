@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  hash_tag_id: 1
+  tweet_id: 1
+
+two:
+  hash_tag_id: 1
+  tweet_id: 1

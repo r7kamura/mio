@@ -12,11 +12,10 @@
         <h1><%= link_to "Mio", :root %></h1>
         <!--<p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>-->
-
-        <p class="room"><%= link_to "Rooms", :room_index %></p>
         <div class="user">
           <% if user_signed_in? %>
-            <span class="email"><%= current_user.email %></span>
+            <span class="config"><%= link_to "Config", :user_config %></span>
+            <span class="room"><%= link_to "Rooms", :room_index %></span>
             <span class="logout"><%= link_to "logout", :destroy_user_session %></span>
           <% end %>
         </div>
