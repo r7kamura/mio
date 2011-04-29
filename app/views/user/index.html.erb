@@ -3,10 +3,7 @@
   <ul class="userLists">
     <% @users.each do |user| %>
       <li>
-      <%= link_to user.profile_image_url ? image_tag(user.profile_image_url, :size => "50x50") : "",
-        {:controller => :user, :action => :timeline, :id => user.id},
-        :style => "background-color:" + random_color(user.email),
-        :class => :icon %>
+      <%= user_icon(user) %>
       <p class="name">screen_name: <%= user.screen_name %></p>
       <p class="email">email: <%= user.email %></p>
       <hr class="defloat" />

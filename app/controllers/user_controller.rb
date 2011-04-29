@@ -4,7 +4,11 @@ class UserController < ApplicationController
   end
 
   def timeline
-    @user = current_user
+    @user = User.find(params[:id])
+    unless @user
+      redirect_to :root
+      return
+    end
     @tweets = @user.tweets.timeline
   end
 
