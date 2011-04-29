@@ -6,6 +6,7 @@ Mio::Application.routes.draw do
   get "room/show"
   get "tweet/home"
   post "tweet/create"
+  post "tweet/delete"
   root :to => "tweet#home"
 
   devise_for :users

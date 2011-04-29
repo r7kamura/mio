@@ -10,8 +10,11 @@
     <p class="buttons">
     <span class="reply">Reply</span>
     <span class="retweet">RT</span>
-    <span class="favorite">Fav</span>
-    <span class="delete">Del</span>
+    <% if t.user == current_user %>
+      <span class="delete"><%= link_to "Del", {:action => :delete, :id => t.id}, :method => "POST", :confirm => "remove?" %></span>
+    <% else %>
+      <span class="favorite">Fav</span>
+    <% end %>
     </p>
   </div>
   <hr class="defloat" />
