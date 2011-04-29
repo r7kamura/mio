@@ -1,4 +1,9 @@
 class UserController < ApplicationController
+  def timeline
+    @user = current_user
+    @tweets = @user.tweets.timeline
+  end
+
   def setting
     @user = current_user
   end

@@ -1,5 +1,6 @@
 Mio::Application.routes.draw do
   get "hash_tag/show"
+  get "user/timeline"
   get "user/setting"
   post "user/update"
   get "room/index"

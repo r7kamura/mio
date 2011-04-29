@@ -1,17 +1,19 @@
 <% @tweets.each do |t| %>
   <li>
-  <div class="icon" style="background-color:<%= random_color(t.user.email) %>">
+  <a class="icon" style="background-color:<%= random_color(t.user.email) %>" href="<%= url_for(:controller => :user, :action => :timeline, :id => t.user.id) %>">
     <%= image_tag t.user.profile_image_url, :size => "50x50" if t.user.profile_image_url %>
-  </div>
+  </a>
   <div class="description">
     <p class="body"><%= linkify t.body %></p>
-    <p class="user">by <%= t.user.screen_name || t.user.email %></p>
+    <p class="user">by <%= link_to t.user.screen_name || t.user.email, :controller => :user, :action => :timeline, :id => t.user.id %></p>
     <p class="time"><%= time_ago_in_words t.created_at %> ago</p>
     <p class="buttons">
     <span class="reply">Reply</span>
     <span class="retweet">RT</span>
     <% if t.user == current_user %>
-      <span class="delete"><%= link_to "Del", {:controller => :tweet, :action => :delete, :id => t.id}, :method => "POST", :confirm => "remove?" %></span>
+      <span class="delete">
+        <%= link_to "Del", {:controller => :tweet, :action => :delete, :id => t.id}, :method => "POST", :confirm => "remove?" %>
+      </span>
     <% else %>
       <span class="favorite">Fav</span>
     <% end %>
