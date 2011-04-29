@@ -14,6 +14,7 @@
         <p class="alert"><%= alert %></p>-->
         <div class="user">
           <% if user_signed_in? %>
+            <span class="users"><%= link_to "Users", :user_index %></span>
             <span class="setting"><%= link_to "Setting", :user_setting %></span>
             <span class="room"><%= link_to "Rooms", :room_index %></span>
             <span class="logout"><%= link_to "logout", :destroy_user_session %></span>

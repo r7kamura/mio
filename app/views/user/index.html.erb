@@ -1,0 +1,15 @@
+<div class="users">
+  <h3>User List</h3>
+  <ul class="userLists">
+    <% @users.each do |user| %>
+      <li>
+      <a class="icon" style="background-color:<%= random_color(user.email) %>" href="<%= url_for(:controller => :user, :action => :timeline, :id => user.id) %>">
+        <%= image_tag user.profile_image_url, :size => "50x50" if user.profile_image_url %>
+      </a>
+      <p class="name">screen_name: <%= user.screen_name %></p>
+      <p class="email">email: <%= user.email %></p>
+      <hr class="defloat" />
+      </li>
+    <% end %>
+  </ul>
+</div>

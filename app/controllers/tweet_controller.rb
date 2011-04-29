@@ -30,8 +30,8 @@ class TweetController < ApplicationController
   end
 
   def delete
-    tweet = Tweet.find(params[:id].to_i) or redirect_to request.referer
-    if tweet.user == current_user
+    tweet = Tweet.find(params[:id].to_i)
+    if tweet && tweet.user == current_user
       tweet.delete
     end
     redirect_to request.referer

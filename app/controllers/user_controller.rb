@@ -1,4 +1,8 @@
 class UserController < ApplicationController
+  def index
+    @users = User.order("created_at DESC")
+  end
+
   def timeline
     @user = current_user
     @tweets = @user.tweets.timeline
