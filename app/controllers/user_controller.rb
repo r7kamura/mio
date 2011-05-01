@@ -9,7 +9,7 @@ class UserController < ApplicationController
       redirect_to :root
       return
     end
-    @tweets = @user.tweets.timeline
+    @tweets = @user.tweets.timeline.page(params[:page])
   end
 
   def setting

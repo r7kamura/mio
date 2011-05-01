@@ -6,7 +6,7 @@ class HashTagController < ApplicationController
       return
     end
 
-    @tweets = @hash_tag.tweets.timeline
+    @tweets = @hash_tag.tweets.timeline.page(params[:page])
   end
 
 end

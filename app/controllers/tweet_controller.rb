@@ -9,7 +9,7 @@ class TweetController < ApplicationController
     user = User.where(:screen_name => params[:user]).first
     redirect_to :root unless user
 
-    @tweets = Tweet.user(user).timeline
+    @tweets = Tweet.user(user).timeline.page(params[:page])
   end
 
   def create

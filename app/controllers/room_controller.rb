@@ -11,7 +11,7 @@ class RoomController < ApplicationController
     end
 
     @room_id = @room.id
-    @tweets = @room.tweets.timeline
+    @tweets = @room.tweets.timeline.page(params[:page])
   end
 
 end
