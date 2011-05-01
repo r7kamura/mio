@@ -4,7 +4,11 @@ class UserController < ApplicationController
   end
 
   def timeline
-    @user = User.find(params[:id])
+    if params[:id]
+      @user = User.find(params[:id])
+    elsif params[:name]
+      @user = User.where(:screen_name => params[:name]).first
+    end
     unless @user
       redirect_to :root
       return
