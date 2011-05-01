@@ -2,7 +2,7 @@ class TweetController < ApplicationController
   before_filter :authenticate_user!
 
   def home
-    @tweets = Tweet.no_room.timeline
+    @tweets = Tweet.no_room.timeline.page(params[:page])
   end
 
   def user
@@ -39,13 +39,13 @@ class TweetController < ApplicationController
 
   def favorite
     tweet = Tweet.find(params[:id])
-    Favorite.create(:tweet_id => tweet.id, :user_id => current_user.id)
+    tweet && Favorite.create(:tweet_id => tweet.id, :user_id => current_user.id)
     redirect_to request.referer
   end
 
   def unfavorite
     tweet = Tweet.find(params[:id])
-    favorite = Favorite.where(:tweet_id => tweet.id, :user_id => current_user.id).first
+    tweet && favorite = Favorite.where(:tweet_id => tweet.id, :user_id => current_user.id).first
     if favorite
       favorite.delete
     end

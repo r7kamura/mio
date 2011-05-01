@@ -11,5 +11,4 @@ class Tweet < ActiveRecord::Base
   scope :timeline, order("created_at DESC").limit(20)
   scope :user, lambda {|user| where(:user_id => user.id) }
   scope :no_room, where("room_id IS NULL")
-
 end
