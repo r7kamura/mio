@@ -27,10 +27,13 @@ $(function(){
     $(this).find(".retweet").click(function(){
       tweetBox.text("RT @" + user + " " + text);
       moveToTweetBox();
+      tweetBox.get(0).setSelectionRange(0, 0);
     });
     $(this).find(".reply").click(function(){
       tweetBox.text("@" + user + " ");
       moveToTweetBox();
+      var textLength = tweetBox.text().length;
+      tweetBox.get(0).setSelectionRange(textLength, textLength);
     });
   });
 
