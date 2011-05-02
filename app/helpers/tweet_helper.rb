@@ -26,4 +26,5 @@ module TweetHelper
     end
     str
   end
+
 end

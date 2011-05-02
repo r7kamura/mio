@@ -11,4 +11,9 @@ module ApplicationHelper
         :style => "background-color:" + random_color(user.email),
         :class => opt[:class] || :icon
   end
+
+  def jp_time(time)
+    time.strftime("%y/%m/%d %H:%M")
+  end
+
 end

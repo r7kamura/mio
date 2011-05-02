@@ -5,8 +5,9 @@
     <li>
     <p class="name"><%= link_to room.name, :action => :show, :name => room.name %></p>
     <p class="user">owner: <%= room.user.screen_name || room.user.email %></p>
-    <p class="time">time: <%= time_ago_in_words room.created_at %> ago</p>
+    <p class="time">time: <%= jp_time room.created_at %></p>
     </li>
   <% end %>
 </ul>
+<%= paginate @rooms %>
 </div>

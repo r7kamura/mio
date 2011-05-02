@@ -4,7 +4,7 @@
   <div class="description">
     <p class="body"><%= linkify t.body %></p>
     <p class="user">by <%= link_to t.user.screen_name || t.user.email, :controller => :user, :action => :timeline, :id => t.user.id %></p>
-    <p class="time"><%= time_ago_in_words t.created_at %> ago</p>
+    <p class="time"><%= jp_time t.created_at %></p>
     <p class="buttons">
     <span class="reply">Reply</span>
     <span class="retweet">RT</span>
