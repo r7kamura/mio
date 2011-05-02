@@ -1,4 +1,20 @@
+var updateTweetsPeriodically = function(){
+  var interval = 60 * 1000;
+  window.setInterval(function(){
+    var id = $(".tweets li").get(0).id;
+    $.ajax({
+      url: "tweet/update_remote/",
+      data: "id=" + id,
+      success: function(html){
+        $(".tweets ul").prepend(html);
+      }
+    });
+  }, interval);
+};
+
 $(function(){
+  updateTweetsPeriodically();
+
   // focus tweet-box
   var tweetBox = $(".tweetBox textarea");
   tweetBox.focus();

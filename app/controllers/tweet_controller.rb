@@ -52,4 +52,9 @@ class TweetController < ApplicationController
     redirect_to request.referer
   end
 
+  def update_remote
+    @tweets = Tweet.no_room.timeline.where("id > ?", params[:id])
+    render :partial => "tweet/tweet_lists"
+  end
+
 end

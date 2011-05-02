@@ -7,6 +7,7 @@ Mio::Application.routes.draw do
   get "room/index"
   get "room/show"
   get "tweet/home"
+  get "tweet/update_remote"
   post "tweet/create"
   post "tweet/delete"
   post "tweet/favorite"
