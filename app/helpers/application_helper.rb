@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def jp_time(time)
-    time.strftime("%y/%m/%d %H:%M")
+    time.localtime.strftime("%y/%m/%d %H:%M")
   end
 
 end
