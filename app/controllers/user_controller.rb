@@ -1,4 +1,6 @@
 class UserController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @users = User.order("created_at DESC")
   end
@@ -22,7 +24,7 @@ class UserController < ApplicationController
 
   def update
     user = current_user
-    user.profile_image_url = params[:profile_image_url]
+    user.profile_image_url = params[:profile_image_url] if params[:profile_image_url]
     user.screen_name = params[:screen_name]
     if user.save
       flash[:message] = "successfully updated"

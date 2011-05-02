@@ -1,4 +1,6 @@
 class RoomController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @rooms = Room.order("created_at DESC")
   end

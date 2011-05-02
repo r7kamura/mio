@@ -1,0 +1,40 @@
+ja:
+  errors:
+    messages:
+      not_found: "は見つかりませんでした。"
+      already_confirmed: "は既に登録済みです。"
+      not_locked: "はログイン可能です。"
+
+  devise:
+    failure:
+      unauthenticated: 'ログインしてください。'
+      unconfirmed: '本登録を行ってください。'
+      locked: 'あなたのアカウントは凍結されています。'
+      invalid: 'ログイン情報が不正です。'
+      invalid_token: '認証キーが不正です。'
+      timeout: 'ログインの有効期間を過ぎました。もう一度ログインしてください。'
+      inactive: 'アカウントが有効になっていません。'
+    sessions:
+      signed_in: 'ログインしました。'
+      signed_out: 'ログアウトしました。'
+    passwords:
+      send_instructions: "パスワードのリセット方法をメールしました。登録されたメールアドレスでご確認ください。"
+      updated: "パスワードの更新を完了しました。"
+    confirmations:
+      send_instructions: "本登録の手続きをメールしました。登録されたメールアドレスでご確認ください。"
+      confirmed: "本登録を完了しました。現在ログイン中です。"
+    registrations:
+      signed_up: "アカウントの登録を完了しました。本登録手続きのメールを登録いただいたメールアドレスでご確認ください。"
+      updated: "アカウントの更新を完了しました。"
+      destroyed: "アカウントを削除しました。またのご利用をお待ちしています。"
+    unlocks:
+      send_instructions: "アカウント凍結解除の手続きをメールしました。登録されたメールアドレスでご確認ください。"
+      unlocked: "アカウントの凍結を解除しました。"
+    mailer:
+      confirmation_instructions:
+        subject: "本登録手続きのご案内"
+      reset_password_instructions:
+        subject: 'パスワード再設定手続きのご案内'
+      unlock_instructions:
+        subject: 'アカウント凍結解除手続きのご案内'
+
