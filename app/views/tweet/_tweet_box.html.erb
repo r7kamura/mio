@@ -1,5 +1,5 @@
 <div class="tweetBox">
-  <%= form_tag(:controller => :tweet, :action => :create) do %>
+  <%= form_tag(tweet_create_url) do %>
     <%= hidden_field_tag :room_id, @room_id %>
     <%= text_area_tag :body %></br>
     <%= submit_tag "Post" %>

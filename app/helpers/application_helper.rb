@@ -7,7 +7,7 @@ module ApplicationHelper
 
   def user_icon(user, opt={})
       link_to user.profile_image_url.nil? || user.profile_image_url.blank? ? "" : image_tag(user.profile_image_url, :size => "50x50"),
-        {:controller => :user, :action => :timeline, :id => user.id},
+        user_timeline_url(user.screen_name),
         :style => "background-color:" + random_color(user.email),
         :class => opt[:class] || :icon
   end

@@ -3,19 +3,17 @@
   <%= user_icon(t.user) %>
   <div class="description">
     <p class="body"><%= linkify t.body %></p>
-    <p class="user">by <%= link_to t.user.screen_name || t.user.email, :controller => :user, :action => :timeline, :id => t.user.id %></p>
+    <p class="user">by <%= link_to t.user.screen_name || t.user.email, user_timeline_url(t.user.screen_name) %>
     <p class="time"><%= jp_time t.created_at %></p>
     <p class="buttons">
     <span class="reply">Reply</span>
     <span class="retweet">RT</span>
     <% if t.user == current_user %>
-      <span class="delete">
-        <%= link_to "Del", {:controller => :tweet, :action => :delete, :id => t.id}, :method => "POST", :confirm => "remove?" %>
-      </span>
+      <span class="delete"><%= link_to "Del", tweet_delete_url(t.id), :method => "POST", :confirm => "remove?" %></span>
     <% elsif @favorites[t.id] && @favorites[t.id].any?{|fav| fav.user_id == current_user.id } %>
-      <span class="unfavorite"><%= link_to "★", {:controller => :tweet, :action => :unfavorite, :id => t.id}, :method => "POST" %></span>
+      <span class="unfavorite"><%= link_to "★", tweet_unfavorite_url(t.id), :method => "POST" %></span>
     <% else %>
-      <span class="favorite"><%= link_to "★", {:controller => :tweet, :action => :favorite, :id => t.id}, :method => "POST" %></span>
+      <span class="favorite"><%= link_to "★", tweet_favorite_url(t.id), :method => "POST" %></span>
     <% end %>
     </p>
     <hr class="defloat" />
@@ -23,7 +21,7 @@
       <p class="favorites">
       <% favorites.each do |fav| %>
         <% img = fav.user.profile_image_url %>
-        <%= link_to image_tag(img, :size => "20x20"), :controller => :user, :action => :timeline, :id => fav.user.id if img %>
+        <%= link_to image_tag(img, :size => "20x20"), user_timeline_url(fav.user.screen_name) if img %>
         liked this.
       <% end %>
       </p>
