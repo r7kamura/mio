@@ -43,7 +43,7 @@ $(function(){
   $(".tweet").each(function(){
     var text = $(this).find(".body").text();
     var user = $(this).find(".user a").text();
-    $(this).find(".retweet").click(function(){
+    $(this).find(".buttons .retweet").click(function(){
       tweetBox.text("RT @" + user + " " + text);
       moveToTweetBox();
       tweetBox.get(0).setSelectionRange(0, 0);
