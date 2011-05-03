@@ -1,4 +1,9 @@
 var updateTweetsPeriodically = function(){
+   // ページ指定がある場合は自動更新しない
+  if ($(location).attr('href').match(/page/)) {
+    return;
+  }
+
   var interval = 60 * 1000;
   window.setInterval(function(){
     var id = $(".tweets li").get(0).id;
