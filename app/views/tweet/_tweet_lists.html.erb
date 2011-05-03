@@ -23,7 +23,7 @@
       <p class="favorites">
       <% favorites.each do |fav| %>
         <% img = fav.user.profile_image_url %>
-        <%= image_tag(img, :size => "20x20") if img %>
+        <%= link_to image_tag(img, :size => "20x20"), :controller => :user, :action => :timeline, :id => fav.user.id if img %>
         liked this.
       <% end %>
       </p>
