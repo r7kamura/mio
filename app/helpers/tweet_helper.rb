@@ -5,6 +5,7 @@ module TweetHelper
     str = linkify_room(str)
     str = linkify_hash_tag(str)
     str = linkify_user(str)
+    str = prettify_retweet(str)
   end
 
   def linkify_room(str)
@@ -33,6 +34,10 @@ module TweetHelper
       str = str.gsub(uri, %Q{<a href="#{uri}" target="_blank">#{uri}</a>}).html_safe
     end
     str
+  end
+
+  def prettify_retweet(str)
+    str.sub(/(^|\s)(RT @.+ .+$)/) { "#{$1}<span class=\"retweet\">#{$2}</span>" }
   end
 
 end
