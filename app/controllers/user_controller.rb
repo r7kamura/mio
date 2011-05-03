@@ -16,6 +16,7 @@ class UserController < ApplicationController
       return
     end
     @tweets = @user.tweets.timeline.page(params[:page])
+    @favorites = Favorite.from_tweets(@tweets)
   end
 
   def setting

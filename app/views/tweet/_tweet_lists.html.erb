@@ -12,12 +12,22 @@
       <span class="delete">
         <%= link_to "Del", {:controller => :tweet, :action => :delete, :id => t.id}, :method => "POST", :confirm => "remove?" %>
       </span>
-    <% elsif current_user.favorite(t) %>
+    <% elsif @favorites[t.id] && @favorites[t.id].any?{|fav| fav.user_id == current_user.id } %>
       <span class="unfavorite"><%= link_to "★", {:controller => :tweet, :action => :unfavorite, :id => t.id}, :method => "POST" %></span>
     <% else %>
       <span class="favorite"><%= link_to "★", {:controller => :tweet, :action => :favorite, :id => t.id}, :method => "POST" %></span>
     <% end %>
     </p>
+    <hr class="defloat" />
+    <% if favorites = @favorites[t.id] %>
+      <p class="favorites">
+      <% favorites.each do |fav| %>
+        <% img = fav.user.profile_image_url %>
+        <%= image_tag(img, :size => "20x20") if img %>
+        liked this.
+      <% end %>
+      </p>
+    <% end %>
   </div>
   <hr class="defloat" />
   </li>

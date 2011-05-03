@@ -3,6 +3,7 @@ class TweetController < ApplicationController
 
   def home
     @tweets = Tweet.no_room.timeline.page(params[:page])
+    @favorites = Favorite.from_tweets(@tweets)
   end
 
   def user
@@ -10,6 +11,7 @@ class TweetController < ApplicationController
     redirect_to :root unless user
 
     @tweets = Tweet.user(user).timeline.page(params[:page])
+    @favorites = Favorite.from_tweets(@tweets)
   end
 
   def create
@@ -54,6 +56,7 @@ class TweetController < ApplicationController
 
   def update_remote
     @tweets = Tweet.no_room.timeline.where("id > ?", params[:id])
+    @favorites = Favorite.from_tweets(@tweets)
     render :partial => "tweet/tweet_lists"
   end
 

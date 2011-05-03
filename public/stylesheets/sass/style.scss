@@ -75,6 +75,10 @@ html { margin-bottom:1px; height:100%; overflow-y:scroll }
     span:hover { color:black; cursor:pointer; }
     .unfavorite { @include link_color(#FFC66D) }
   }
+  .favorites {
+    color:#ccc;
+    img { vertical-align:middle; }
+  }
   li { padding:5px 0; margin:5px 0; border-bottom:solid 1px #eee; }
   li:last-child { border-bottom:0; }
 }

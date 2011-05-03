@@ -9,6 +9,7 @@ class HashTagController < ApplicationController
     end
 
     @tweets = @hash_tag.tweets.timeline.page(params[:page])
+    @favorites = Favorite.from_tweets(@tweets)
   end
 
 end
