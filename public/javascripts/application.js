@@ -13,8 +13,6 @@ var updateTweetsPeriodically = function(){
 };
 
 $(function(){
-  updateTweetsPeriodically();
-
   // focus tweet-box
   var tweetBox = $(".tweetBox textarea");
   tweetBox.focus();
