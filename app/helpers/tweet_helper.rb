@@ -9,24 +9,21 @@ module TweetHelper
   end
 
   def linkify_room(str)
-    if str =~ /&(\w+)(?:\s+|$|<)/
-      str = str.gsub($~[1], link_to($~[1], :controller => :room, :action => :show, :name => $~[1].delete("&"))).html_safe
-    end
-    str
+    str.gsub(/&(\w+)(\s+|$)/) {|txt|
+      link_to("&" + $~[1], :controller => :room, :action => :show, :name => $~[1]) + $~[2]
+    }.html_safe
   end
 
   def linkify_hash_tag(str)
-    if str =~ /#(\w+)(?:\s+|$|<)/
-      str = str.gsub($~[1], link_to($~[1], :controller => :hash_tag, :action => :show, :name => $~[1].delete("#"))).html_safe
-    end
-    str
+    str.gsub(/#(\w+)(\s+|$)/) {|txt|
+      link_to("#" + $~[1], :controller => :hash_tag, :action => :show, :name => $~[1]) + $~[2]
+    }.html_safe
   end
 
   def linkify_user(str)
-    if str =~ /@(\w+)(?:\s+|$|<)/
-      str = str.gsub($~[1], link_to($~[1], :controller => :user, :action => :timeline, :name => $~[1].delete("@"))).html_safe
-    end
-    str
+    str.gsub(/@(\w+)(\s+|$)/) {|txt|
+      link_to("@" + $~[1], :controller => :user, :action => :timeline, :name => $~[1]) + $~[2]
+    }.html_safe
   end
 
   def linkify_url(str)
