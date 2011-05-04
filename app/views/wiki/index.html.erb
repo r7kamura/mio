@@ -8,4 +8,5 @@
       <li><%= link_to page.name, wiki_show_url(page.name) %></li>
     <% end %>
   </ul>
+  <%= paginate @pages %>
 </div>

@@ -99,13 +99,16 @@ html { margin-bottom:1px; height:100%; overflow-y:scroll }
 .wiki {
   .title { font-size:200%; border-bottom:solid 3px black; margin-bottom:5px; }
   .menu { text-align:right; }
+  .back { margin-top:20px; }
   input#title,
   input#name { width:50%; }
   textarea#body { font-size:120%; width:100%; }
   .body {
     h1, h2, h3, h4, h5 { padding-top:20px; }
+    ul { list-style-type:disc; padding-left:20px; }
+    ul ul { list-style-type:circle; }
+    ul ul ul { list-style-type:decimal; }
   }
-  .back { margin-top:20px; }
 }
 
 .devise.links { margin-top:20px; }
