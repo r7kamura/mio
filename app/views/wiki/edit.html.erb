@@ -1,21 +1,24 @@
 <div class="wiki">
   <h3 class="title"><%= @page.screen_name || t(".create_page") %></h3>
-<%= form_tag(wiki_update_url(@page.id), :method => "post") do |f| %>
-  <p>
-  <%= label_tag t ".name" %><br/>
-  <%= text_field_tag :name, @page.name || params[:name] %>
-  </p>
+  <p class="message"><%= flash[:message] %></p>
+  <%= form_tag(wiki_update_url, :method => "post") do |f| %>
+    <%= hidden_field_tag :id, @page.id %>
 
-  <p>
-  <%= label_tag t ".title" %><br/>
-  <%= text_field_tag :title, @page.title %>
-  </p>
+    <p>
+    <%= label_tag t ".name" %><br/>
+    <%= text_field_tag :name, @page.name || params[:name] %>
+    </p>
 
-  <p>
-  <%= label_tag t ".body" %><br/>
-  <%= text_area_tag :body, @page.body, :size => "60x20" %>
-  </p>
+    <p>
+    <%= label_tag t ".title" %><br/>
+    <%= text_field_tag :title, @page.title %>
+    </p>
 
-  <p><%= submit_tag t :post %></p>
-<% end %>
+    <p>
+    <%= label_tag t ".body" %><br/>
+    <%= text_area_tag :body, @page.body, :size => "60x20" %>
+    </p>
+
+    <p><%= submit_tag t :post %></p>
+  <% end %>
 </div>

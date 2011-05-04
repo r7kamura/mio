@@ -1,10 +1,9 @@
 Mio::Application.routes.draw do
   match "wiki" => "wiki#index", :as => :wiki_index
-  match "wiki/update/:id" => "wiki#update", :as => :wiki_update
   match "wiki/delete/:id" => "wiki#delete", :as => :wiki_delete
-  match "wiki/update" => "wiki#update", :as => :wiki_update
   match "wiki/edit" => "wiki#edit", :as => :wiki_create
   match "wiki/edit/:name" => "wiki#edit", :as => :wiki_edit
+  post  "wiki/update"
   match "wiki/:name" => "wiki#show", :as => :wiki_show
   get   "room/index"
   match "room/:name" => "room#show", :as => :room_show

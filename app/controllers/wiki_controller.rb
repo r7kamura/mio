@@ -18,10 +18,10 @@ class WikiController < ApplicationController
   end
 
   def update
-    if params[:id]
-      @page = Page.find(params[:id]).first
-    else
+    if params[:id].nil? || params[:id].empty?
       @page = Page.new
+    else
+      @page = Page.find(params[:id])
     end
     @page.attributes = {
       :name   => params[:name],
@@ -29,10 +29,8 @@ class WikiController < ApplicationController
       :title  => params[:title],
     }
     if @page.save
-      flash[:message] = t("saved")
       redirect_to wiki_show_url(@page.name)
     else
-      flash[:message] = t("failed")
       redirect_to wiki_edit_url(@page.name)
     end
   end
