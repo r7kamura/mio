@@ -1,11 +1,21 @@
 <div class="users">
-  <h3>User List</h3>
+  <h3><%=t ".user_list" %></h3>
   <ul class="userLists">
     <% @users.each do |user| %>
       <li>
       <%= user_icon(user) %>
-      <p class="name">screen_name: <%= user.screen_name %></p>
-      <p class="email">email: <%= user.email %></p>
+      <table>
+        <tr class="name">
+          <td><%=t "user.attr.screen_name" %></td>
+          <td>:</td>
+          <td><%= user.screen_name %></td>
+        </tr>
+        <tr class="email">
+          <td><%=t "user.attr.email" %></td>
+          <td>:</td>
+          <td><%= user.email %></td>
+        </tr>
+      </table>
       <hr class="defloat" />
       </li>
     <% end %>

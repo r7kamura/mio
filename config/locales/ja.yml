@@ -1,0 +1,46 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+ja:
+  # 汎用的な名前
+  post: "送信"
+  ok: "OK"
+  next: "次"
+  prev: "前"
+
+  # Controllerごとの名前
+  tweet:
+    home:
+      tweet_please: "つぶやきをどうぞ"
+
+  user:
+    attr:
+      screen_name: "名前"
+      profile_image_url: "アイコン画像URL"
+      email: "メールアドレス"
+    index:
+      user_list: "ユーザ一覧"
+    setting:
+      setting: "設定"
+      screen_name: "名前"
+      profile_image_url: "アイコン画像URL"
+
+  devise:
+    sessions:
+      new:
+        signin: "ログイン"
+        email: "メールアドレス"
+        password: "パスワード"
+        remember_me: "ログイン状態を記憶"
+    registrations:
+      new:
+        signup: "ユーザ登録"
+        screen_name: "名前"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード(確認)"
+    shared:
+      links:
+        signup: "ユーザ登録"
+        signin: "ログイン"
+        forgot_your_password: "パスワードを忘れたら"
