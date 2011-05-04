@@ -23,7 +23,7 @@ module TweetHelper
   end
 
   def linkify_wiki(str)
-    str.gsub(/\[(.+)\]/) {|txt| link_to("[#{$1}]", wiki_show_url($1)) }.html_safe
+    str.gsub(/\[([^\s]+)\]/) {|txt| link_to("[#{$1}]", wiki_show_url($1)) }.html_safe
   end
 
   def linkify_url(str)
