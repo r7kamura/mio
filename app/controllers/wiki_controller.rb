@@ -5,7 +5,7 @@ class WikiController < ApplicationController
 
   def show
     unless @page = Page.where(:name => params[:name]).first
-      redirect_to wiki_index_url; return
+      redirect_to wiki_edit_url(params[:name])
     end
   end
 

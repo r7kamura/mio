@@ -5,6 +5,7 @@ module TweetHelper
     str = linkify_room(str)
     str = linkify_hash_tag(str)
     str = linkify_user(str)
+    str = linkify_wiki(str)
     str = prettify_retweet(str)
     str = prettify_linebreak(str)
   end
@@ -19,6 +20,10 @@ module TweetHelper
 
   def linkify_user(str)
     str.gsub(/@(\w+)(\s+|$)/) {|txt| link_to("@#{$1}", user_timeline_url($1)) + $2 }.html_safe
+  end
+
+  def linkify_wiki(str)
+    str.gsub(/\[(.+)\]/) {|txt| link_to("[#{$1}]", wiki_show_url($1)) }.html_safe
   end
 
   def linkify_url(str)
