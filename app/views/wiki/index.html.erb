@@ -1,0 +1,11 @@
+<div class="wiki">
+  <h3 class="title">Wiki</h3>
+  <p class="menu">
+  <span class="create"><%= link_to t(".create_page"), wiki_create_url %></span>
+  </p>
+  <ul class="page_lists">
+    <% @pages.each do |page| %>
+      <li><%= link_to page.screen_name, wiki_show_url(page.name) %></li>
+    <% end %>
+  </ul>
+</div>

@@ -12,8 +12,9 @@
         <h1><%= link_to "Mio", :root %></h1>
         <!--<p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>-->
-        <div class="user">
+        <div class="menu">
           <% if user_signed_in? %>
+            <span class="wiki"><%= link_to "Wiki", :wiki_index %></span>
             <span class="users"><%= link_to "Users", :user_index %></span>
             <span class="setting"><%= link_to "Setting", :user_setting %></span>
             <span class="room"><%= link_to "Rooms", :room_index %></span>

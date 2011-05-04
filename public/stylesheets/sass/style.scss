@@ -49,10 +49,9 @@ html { margin-bottom:1px; height:100%; overflow-y:scroll }
 #header {
   background-color:black; height:40px; color:white; margin-bottom:20px; font-size:20px; line-height:2.0; font-weight:bold;
   h1 { float:left; color:#53CCFF; @include link_color(#53CCFF); font-size:20px; line-height:2.0; }
-  .room { float:left; padding-left:200px; }
-  .user {
+  .menu {
     float:right;
-    span { margin-right:20px; }
+    span { margin-left:20px; }
   }
 }
 
@@ -95,6 +94,14 @@ html { margin-bottom:1px; height:100%; overflow-y:scroll }
   .time { font-size:80%; color:#ccc; }
   li { padding:5px 0; margin:5px 0; border-bottom:solid 1px #eee; }
   li:last-child { border-bottom:0; }
+}
+
+.wiki {
+  .title { font-size:200%; border-bottom:solid 3px black; margin-bottom:5px; }
+  .menu { text-align:right; }
+  input#title,
+  input#name { width:50%; }
+  textarea#body { font-size:120%; width:100%; }
 }
 
 .devise.links { margin-top:20px; }

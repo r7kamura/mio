@@ -4,6 +4,9 @@
 ja:
   # 汎用的な名前
   post: "送信"
+  edit: "編集"
+  delete: "削除"
+  confirm_to_delete: "本当に削除しますか？"
   ok: "OK"
   next: "次"
   prev: "前"
@@ -24,6 +27,15 @@ ja:
       setting: "設定"
       screen_name: "名前"
       profile_image_url: "アイコン画像URL"
+
+  wiki:
+    index:
+      create_page: "新しくページを作る"
+    edit:
+      create_page: "新しくページを作る"
+      name: "Page Name (※半角英数・URLに利用)"
+      title: "ページタイトル"
+      body: "本文"
 
   devise:
     sessions:

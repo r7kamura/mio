@@ -1,0 +1,8 @@
+<div class="wiki">
+  <h3 class="title"><%= @page.screen_name %></h3>
+  <p class="menu">
+  <span><%= link_to t(:edit), wiki_edit_url(@page.name) %></span>
+  <span><%= link_to t(:delete), wiki_delete_url(@page.id), :confirm => t("confirm_to_delete") %></span>
+  </p>
+  <p class="body"><%= prettify_to_html @page.body %></p>
+</div>
