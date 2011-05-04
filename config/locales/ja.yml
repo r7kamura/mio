@@ -34,8 +34,7 @@ ja:
       create_page: "新しくページを作る"
     edit:
       create_page: "新しくページを作る"
-      name: "Page Name (※半角英数・URLに利用)"
-      title: "ページタイトル"
+      name: "ページタイトル"
       body: "本文"
 
   devise:
