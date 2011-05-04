@@ -106,9 +106,10 @@ html { margin-bottom:1px; height:100%; overflow-y:scroll }
   .body {
     color:#555;
     h1, h2, h3, h4, h5 { padding-top:20px; color:black; }
-    ol,ul { list-style-type:disc; padding-left:20px; }
-    ol ol, ul ul { list-style-type:circle; }
-    ol ol ol, ul ul ul { list-style-type:decimal; }
+    ul, ol { padding-left:20px; }
+    ul { list-style-type:disc; }
+    ul ul { list-style-type:circle; }
+    ul ul ul { list-style-type:decimal; }
   }
 }
 
