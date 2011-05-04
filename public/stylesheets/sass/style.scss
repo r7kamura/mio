@@ -102,6 +102,10 @@ html { margin-bottom:1px; height:100%; overflow-y:scroll }
   input#title,
   input#name { width:50%; }
   textarea#body { font-size:120%; width:100%; }
+  .body {
+    h1, h2, h3, h4, h5 { padding-top:20px; }
+  }
+  .back { margin-top:20px; }
 }
 
 .devise.links { margin-top:20px; }

@@ -29,6 +29,7 @@ ja:
       profile_image_url: "アイコン画像URL"
 
   wiki:
+    back_to_index: "一覧に戻る"
     index:
       create_page: "新しくページを作る"
     edit:

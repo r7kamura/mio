@@ -26,7 +26,6 @@ class WikiController < ApplicationController
     @page.attributes = {
       :name   => params[:name],
       :body   => params[:body],
-      :title  => params[:title],
     }
     if @page.save
       redirect_to wiki_show_url(@page.name)
