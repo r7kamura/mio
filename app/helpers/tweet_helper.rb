@@ -6,6 +6,7 @@ module TweetHelper
     str = linkify_hash_tag(str)
     str = linkify_user(str)
     str = prettify_retweet(str)
+    str = prettify_linebreak(str)
   end
 
   def linkify_room(str)
@@ -31,4 +32,7 @@ module TweetHelper
     str.sub(/(^|\s)(RT @.+ .+$)/) { "#{$1}<span class=\"retweet\">#{$2}</span>" }
   end
 
+  def prettify_linebreak(str)
+    str.gsub("\n", "<br>".html_safe)
+  end
 end
