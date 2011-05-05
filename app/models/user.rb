@@ -16,4 +16,21 @@ class User < ActiveRecord::Base
     Favorite.where(:tweet_id => tweet.id, :user_id => self.id).first
   end
 
+  def self.from_tweets(tweets)
+    users = User.where("id IN (?)", tweets.map{|tweet| tweet.user_id }.uniq)
+    users_map = []
+    tweets.each do |tweet|
+      users_map[tweet.id] ||= users.detect{|user| user.id == tweet.user_id }
+    end
+    users_map
+  end
+
+  def self.from_rooms(rooms)
+    users = User.where("id IN (?)", rooms.map{|room| room.user_id }.uniq)
+    users_map = []
+    rooms.each do |room|
+      users_map[room.id] ||= users.detect{|user| user.id == room.user_id }
+    end
+    users_map
+  end
 end

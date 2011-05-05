@@ -3,6 +3,7 @@ class RoomController < ApplicationController
 
   def index
     @rooms = Room.order("created_at DESC").page(params[:page])
+    @users = User.from_rooms(@rooms)
   end
 
   def show
@@ -15,6 +16,7 @@ class RoomController < ApplicationController
     @room_id = @room.id
     @tweets = @room.tweets.timeline.page(params[:page])
     @favorites = Favorite.from_tweets(@tweets)
+    @users = User.from_tweets(@tweets)
   end
 
 end

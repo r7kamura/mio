@@ -1,14 +1,15 @@
 <% @tweets.each do |t| %>
+  <% user = @users[t.id] %>
   <li class="tweet" id="<%= t.id %>">
-  <%= user_icon(t.user) %>
+  <%= user_icon(user) %>
   <div class="description">
     <p class="body"><%= linkify t.body %></p>
-    <p class="user">by <%= link_to t.user.screen_name || t.user.email, user_timeline_url(t.user.screen_name) %>
+    <p class="user">by <%= link_to user.screen_name || user.email, user_timeline_url(user.screen_name) %>
     <p class="time"><%= jp_time t.created_at %></p>
     <p class="buttons">
     <span class="reply">Reply</span>
     <span class="retweet">RT</span>
-    <% if t.user == current_user %>
+    <% if user == current_user %>
       <span class="delete"><%= link_to "Del", tweet_delete_url(t.id), :method => "POST", :confirm => "remove?" %></span>
     <% elsif @favorites[t.id] && @favorites[t.id].any?{|fav| fav.user_id == current_user.id } %>
       <span class="unfavorite"><%= link_to "★", tweet_unfavorite_url(t.id), :method => "POST" %></span>
