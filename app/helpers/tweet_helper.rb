@@ -4,9 +4,9 @@ module TweetHelper
     str = linkify_url(str)
     str = linkify_room(str)
     str = linkify_hash_tag(str)
-    str = linkify_user(str)
     str = linkify_wiki(str)
     str = prettify_retweet(str)
+    str = linkify_user(str)
     str = prettify_linebreak(str)
   end
 
@@ -33,6 +33,7 @@ module TweetHelper
     str
   end
 
+  # @を検出するため、linkify_userより前に行う必要がある
   def prettify_retweet(str)
     str.sub(/(^|\s)(RT @.+ .+$)/) { "#{$1}<span class=\"retweet\">#{$2}</span>" }
   end

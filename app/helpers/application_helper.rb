@@ -9,7 +9,7 @@ module ApplicationHelper
       link_to user.profile_image_url.nil? || user.profile_image_url.blank? ? "" : image_tag(user.profile_image_url, :size => "50x50"),
         user_timeline_url(user.screen_name),
         :style => "background-color:" + random_color(user.email),
-        :class => opt[:class] || :icon
+        :class => opt[:class] || :icon if user.screen_name
   end
 
   def jp_time(time)
