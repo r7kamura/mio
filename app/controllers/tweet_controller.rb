@@ -20,12 +20,12 @@ class TweetController < ApplicationController
     tweet = Tweet.create(:body => params[:body], :user => current_user, :room_id => params[:room_id])
 
     # Room
-    if params[:body] =~ /&([^\s]+)(?:\s+|$)/
+    if params[:body] =~ /&(\w+)(?:\s+|$)/
       Room.where(:name => $~[1]).first or Room.create(:name => $~[1], :user => current_user)
     end
 
     # HashTag
-    if params[:body] =~ /#([^\s]+)(?:\s+|$)/
+    if params[:body] =~ /#(\w+)(?:\s+|$)/
       hash = HashTag.where(:name => $~[1]).first || HashTag.create(:name => $~[1])
       HashTagTweet.create(:hash_tag_id => hash.id, :tweet_id => tweet.id)
     end
