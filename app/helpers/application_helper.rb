@@ -16,4 +16,8 @@ module ApplicationHelper
     time.localtime.strftime("%y/%m/%d %H:%M")
   end
 
+  def jp_date(time)
+    time.localtime.strftime("%y/%m/%d")
+  end
+
 end

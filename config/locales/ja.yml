@@ -23,6 +23,7 @@ ja:
       email: "メールアドレス"
     index:
       user_list: "ユーザ一覧"
+      last_tweet: "最後につぶやいた日"
     setting:
       setting: "設定"
       screen_name: "名前"

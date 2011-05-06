@@ -15,6 +15,11 @@
           <td>:</td>
           <td><%= user.email %></td>
         </tr>
+        <tr class="lastTweet">
+          <td><%=t ".last_tweet" %></td>
+          <td>:</td>
+          <td><%= jp_date user.tweets.first.created_at %></td>
+        </tr>
       </table>
       <hr class="defloat" />
       </li>
