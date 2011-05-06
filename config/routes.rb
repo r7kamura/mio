@@ -1,23 +1,23 @@
 Mio::Application.routes.draw do
-  match "wiki" => "wiki#index", :as => :wiki_index
-  match "wiki/delete/:id" => "wiki#delete", :as => :wiki_delete
-  match "wiki/edit" => "wiki#edit", :as => :wiki_create
-  match "wiki/edit/:name" => "wiki#edit", :as => :wiki_edit
+  get   "wiki" => "wiki#index", :as => :wiki_index
+  post  "wiki/delete/:id" => "wiki#delete", :as => :wiki_delete
+  get   "wiki/edit" => "wiki#edit", :as => :wiki_create
+  get   "wiki/edit/:name" => "wiki#edit", :as => :wiki_edit
   post  "wiki/update"
-  match "wiki/:name" => "wiki#show", :as => :wiki_show
-  get   "room/index"
-  match "room/:name" => "room#show", :as => :room_show
-  match "tag/:name" => "hash_tag#show", :as => :hash_tag_show
+  get   "wiki/:name" => "wiki#show", :as => :wiki_show
+  get   "rooms" => "room#index", :as => :room_index
+  get   "room/:name" => "room#show", :as => :room_show
+  get   "tag/:name" => "hash_tag#show", :as => :hash_tag_show
   get   "user/setting"
-  get   "user/index"
+  get   "users" => "user#index", :as => :user_index
   post  "user/update"
-  match "user/:name" => "user#timeline", :as => :user_timeline
+  get   "user/:name" => "user#timeline", :as => :user_timeline
   get   "tweet/home"
   get   "tweet/update_remote"
   post  "tweet/create"
-  match "tweet/favorite/:id" => "tweet#favorite", :as => :tweet_favorite
-  match "tweet/unfavorite/:id" => "tweet#unfavorite", :as => :tweet_unfavorite
-  match "tweet/delete/:id" => "tweet#delete", :as => :tweet_delete
+  post  "tweet/favorite/:id" => "tweet#favorite", :as => :tweet_favorite
+  post  "tweet/unfavorite/:id" => "tweet#unfavorite", :as => :tweet_unfavorite
+  post  "tweet/delete/:id" => "tweet#delete", :as => :tweet_delete
   root :to => "tweet#home"
 
   devise_for :users
