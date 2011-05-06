@@ -3,7 +3,7 @@
   <li class="tweet" id="<%= t.id %>">
   <%= user_icon(user) %>
   <div class="description">
-    <p class="body"><%= linkify t.body %></p>
+    <p class="body"><%= linkify h(t.body) %></p>
     <p class="user">by <%= link_to user.screen_name || user.email, user_timeline_url(user.screen_name) %>
     <p class="time"><%= jp_time t.created_at %></p>
     <p class="buttons">
