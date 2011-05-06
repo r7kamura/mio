@@ -59,7 +59,8 @@ html { margin-bottom:1px; height:100%; overflow-y:scroll }
 
 .tweetBox {
   textarea#body { width:100%; height:60px; font-size:120%; }
-  input[type=submit] { height:50px; width:50px; font-size:200%; }
+  input[type=submit] { padding:5px 20px; border:solid 2px #bbb; @include rounded; font-size:100%; cursor:pointer; background-color:#ccc; }
+  input[type=submit]:hover { background-color:#eee }
   #countUp { float:right; font-size:120%; }
 }
 
