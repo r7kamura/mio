@@ -11,7 +11,7 @@ module TweetHelper
   end
 
   def linkify_room(str)
-    str.gsub(/\*(\w+)(\s+|$)/) {|txt| link_to("*#{$1}", room_show_url($1)) + $2 }.html_safe
+    str.gsub(/&(\w+)(\s+|$)/) {|txt| link_to("&#{$1}", room_show_url($1)) + $2 }.html_safe
   end
 
   def linkify_hash_tag(str)
