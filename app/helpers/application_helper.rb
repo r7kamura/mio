@@ -6,10 +6,14 @@ module ApplicationHelper
   end
 
   def user_icon(user, opt={})
-      link_to user.profile_image_url.nil? || user.profile_image_url.blank? ? "" : image_tag(user.profile_image_url, :size => "50x50"),
-        user_timeline_url(user.screen_name),
-        :style => "background-color:" + random_color(user.email),
-        :class => opt[:class] || :icon if user.screen_name
+    if user.profile_image_url.nil? || user.profile_image_url.blank?
+      style = "background-color:" + random_color(user.email)
+      title = ""
+    else
+      style = ""
+      title = image_tag(user.profile_image_url, :size => "50x50")
+    end
+    link_to title, user_timeline_url(user.screen_name), :style => style, :class => :icon
   end
 
   def jp_time(time)
