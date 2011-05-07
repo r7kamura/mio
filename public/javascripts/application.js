@@ -67,5 +67,6 @@ $(function(){
 
   clickRetweetAndReply();
 
+  $("img").lazyload();
 });
 
