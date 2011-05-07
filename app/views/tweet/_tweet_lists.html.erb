@@ -20,11 +20,11 @@
     <hr class="defloat" />
     <% if favorites = @favorites[t.id] %>
       <p class="favorites">
-      <% favorites.each do |fav| %>
-        <% img = fav.user.profile_image_url %>
-        <%= link_to image_tag(img, :size => "20x20"), user_timeline_url(fav.user.screen_name) if img %>
+        <% favorites.each do |fav| %>
+          <% img = fav.user.profile_image_url %>
+          <%= link_to image_tag(img, :size => "20x20"), user_timeline_url(fav.user.screen_name) if img %>
+        <% end %>
         liked this.
-      <% end %>
       </p>
     <% end %>
   </div>
