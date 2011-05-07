@@ -1,3 +1,11 @@
+// .tweetBox textareaに移動してフォーカスする
+var moveToTweetBox = function(){
+  $('html,body').animate({ scrollTop: $("#header").offset().top }, 'slow','swing');
+  var tweetBox = $(".tweetBox textarea");
+  window.setTimeout(function(){ tweetBox.focus(); }, 1000);
+};
+
+
 // ReplyとRTボタンをクリックした時の挙動を設定する
 var clickRetweetAndReply = function(){
   $(".tweet").each(function(){
@@ -58,12 +66,6 @@ $(function(){
   });
 
   clickRetweetAndReply();
-
-  // RT & Reply
-  var moveToTweetBox = function(){
-    $('html,body').animate({ scrollTop: $("#header").offset().top }, 'slow','swing');
-    window.setTimeout(function(){ tweetBox.focus(); }, 1000);
-  };
 
 });
 
