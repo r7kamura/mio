@@ -27,7 +27,10 @@ module TweetHelper
   end
 
   def linkify_url(str)
+    replaced_uris = []
     URI.extract(str.dup, %w[http https ftp]) do |uri|
+      next if replaced_uris.include?(uri)
+      replaced_uris << uri
       str = str.gsub(uri, %Q{<a href="#{uri}" target="_blank">#{uri}</a>}).html_safe
     end
     str
@@ -40,5 +43,16 @@ module TweetHelper
 
   def prettify_linebreak(str)
     str.gsub("\n", "<br>".html_safe)
+  end
+
+  def extract_images(str)
+    images = []
+    URI.extract(str.dup, %w[http]) do |uri|
+      if uri.match(/\.(?:jpg|jpeg|png|gif|bmp)$/i)
+        target = %Q{<img src="#{uri}" alt="" />}
+      end
+      images << %Q{<a href="#{uri}" target="_blank">#{target}</a>}.html_safe
+    end
+    images.empty? ? nil : images
   end
 end
