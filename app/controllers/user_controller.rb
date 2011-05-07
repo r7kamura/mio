@@ -28,6 +28,7 @@ class UserController < ApplicationController
     user = current_user
     user.profile_image_url = params[:profile_image_url] if params[:profile_image_url]
     user.screen_name = params[:screen_name]
+    user.save
     redirect_to :tweet_home
   end
 
