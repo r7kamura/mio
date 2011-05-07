@@ -35,7 +35,7 @@ module TweetHelper
 
   # @を検出するため、linkify_userより前に行う必要がある
   def prettify_retweet(str)
-    str.sub(/(^|\s)(RT @.+ .+$)/) { "#{$1}<span class=\"retweet\">#{$2}</span>" }
+    str.sub(/(^|\s)(RT @.+ (?:.|\n)+$)/) { "#{$1}<span class=\"retweet\">#{$2}</span>" }
   end
 
   def prettify_linebreak(str)
