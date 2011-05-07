@@ -67,6 +67,6 @@ $(function(){
 
   clickRetweetAndReply();
 
-  $("img").lazyload();
+  $("img").lazyload({ placeholder : "/images/grey.gif" });
 });
 
