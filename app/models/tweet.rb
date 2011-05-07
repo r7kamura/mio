@@ -8,7 +8,8 @@ class Tweet < ActiveRecord::Base
   validates :body, :presence => true, :uniqueness => {:scope => [:user_id, :room_id]}
 
   scope :regular_limit, limit(20)
-  scope :timeline, order("created_at DESC").limit(20)
+  scope :recent, order("created_at DESC")
+  scope :timeline, recent.limit(20)
   scope :user, lambda {|user| where(:user_id => user.id) }
   scope :no_room, where("room_id IS NULL")
 
