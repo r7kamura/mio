@@ -29,6 +29,10 @@ $site-width: 820px;
 @mixin main_font {
   font-family: Arial, Helvetica, sans-serif;
 }
+@mixin button {
+  input[type=submit] { padding:5px 20px; border:solid 2px #bbb; @include rounded; font-size:100%; cursor:pointer; background-color:#ccc; }
+  input[type=submit]:hover { background-color:#eee }
+}
 
 
 
@@ -60,9 +64,8 @@ html { margin-bottom:1px; height:100%; overflow-y:scroll }
 .tweetBox {
   padding-bottom:30px;
   textarea#body { width:100%; height:60px; font-size:120%; padding:5px; }
-  input[type=submit] { padding:5px 20px; border:solid 2px #bbb; @include rounded; font-size:100%; cursor:pointer; background-color:#ccc; }
-  input[type=submit]:hover { background-color:#eee }
   #countUp { float:right; font-size:120%; }
+  @include button;
 }
 
 .tweets {
@@ -106,9 +109,13 @@ html { margin-bottom:1px; height:100%; overflow-y:scroll }
   input#title,
   input#name { width:50%; }
   textarea#body { font-size:120%; width:100%; padding:5px; }
+  @include button;
   .body {
     color:#555;
-    h1, h2, h3, h4, h5 { padding-top:20px; color:black; }
+    font-size:80%;
+    h1, h2, h3, h4, h5 { padding-top:20px; color:#333; }
+    h1 { border-bottom:dotted 2px #ccc; margin-bottom:5px; }
+    pre { font-size:120%; background-color:#ddd; padding:10px; @include rounded(10px); }
     ol { padding-left:25px; }
     ul { list-style-type:disc; padding-left:20px; }
     ul ul { list-style-type:circle; }
