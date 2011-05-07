@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :tweets
   has_many :favorites
 
-  validates :screen_name, :presence => true, :uniqueness => true, :format => {:with => /^\w+$/}
+  validates :screen_name, :presence => true, :uniqueness => true, :format => {:with => /^[\w_]+$/}
 
   def favorite(tweet)
     Favorite.where(:tweet_id => tweet.id, :user_id => self.id).first

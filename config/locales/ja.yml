@@ -11,6 +11,24 @@ ja:
   next: "次"
   prev: "前"
 
+  # Error
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "そのメールアドレスは既に使われています。"
+            password:
+              confirmation: "パスワード(確認)が正しくありません。"
+            screen_name:
+              blank: "名前が空白です。"
+              invalid: "名前の形式が正しくありません。"
+
+  errors:
+    messages:
+      not_saved: "エラーが発生しました。"
+
   # Controllerごとの名前
   tweet:
     home:
