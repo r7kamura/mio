@@ -15,7 +15,7 @@ class UserController < ApplicationController
       redirect_to :root
       return
     end
-    @tweets = @user.tweets.timeline.page(params[:page])
+    @tweets = @user.tweets.no_room.timeline.page(params[:page])
     @favorites = Favorite.from_tweets(@tweets)
     @users = User.from_tweets(@tweets)
   end

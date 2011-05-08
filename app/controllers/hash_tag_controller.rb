@@ -8,7 +8,7 @@ class HashTagController < ApplicationController
       return
     end
 
-    @tweets = @hash_tag.tweets.timeline.page(params[:page])
+    @tweets = @hash_tag.tweets.no_room.timeline.page(params[:page])
     @favorites = Favorite.from_tweets(@tweets)
     @users = User.from_tweets(@tweets)
   end
