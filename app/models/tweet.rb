@@ -1,5 +1,5 @@
 class Tweet < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, :counter_cache => true
   belongs_to :room
   has_many :hash_tag_tweets
   has_many :hash_tags, :through => :hash_tag_tweets

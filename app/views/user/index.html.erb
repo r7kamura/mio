@@ -21,6 +21,11 @@
           <% tweet = user.tweets.recent.first %>
           <td><%= jp_date tweet.created_at if tweet %></td>
         </tr>
+        <tr class="count">
+          <td><%=t "user.attr.tweets_count" %></td>
+          <td>:</td>
+          <td><%= user.tweets_count %></td>
+        </tr>
       </table>
       <hr class="defloat" />
       </li>

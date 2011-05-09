@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110504060651) do
+ActiveRecord::Schema.define(:version => 20110509162123) do
 
   create_table "favorites", :force => true do |t|
     t.integer  "tweet_id"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20110504060651) do
     t.string   "profile_image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "tweets_count",                          :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

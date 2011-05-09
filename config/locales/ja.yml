@@ -42,6 +42,7 @@ ja:
       screen_name: "名前"
       profile_image_url: "アイコン画像URL"
       email: "メールアドレス"
+      tweets_count: "つぶやいた数"
     index:
       user_list: "ユーザ一覧"
       last_tweet: "最後につぶやいた日"
