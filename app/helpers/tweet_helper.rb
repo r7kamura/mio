@@ -55,4 +55,8 @@ module TweetHelper
     end
     images.empty? ? nil : images
   end
+
+  def is_replied?(tweet, user = current_user)
+    !!tweet.body.match("@" + user.screen_name)
+  end
 end
