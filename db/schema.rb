@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110509162123) do
+ActiveRecord::Schema.define(:version => 20110509180516) do
 
   create_table "favorites", :force => true do |t|
     t.integer  "tweet_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20110509162123) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
   create_table "tweets", :force => true do |t|

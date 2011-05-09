@@ -22,7 +22,7 @@ class RoomController < ApplicationController
   def delete
     @room = Room.find(params[:id])
     if @room && @room.user_id == current_user.id
-      @room.delete
+      @room.update_attributes(:deleted_at => Time.now)
     end
     redirect_to room_index_url
   end
