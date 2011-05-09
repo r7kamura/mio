@@ -15,7 +15,6 @@ Mio::Application.routes.draw do
   get   "tweet/home"
   get   "tweet/update_remote"
   get   "tweet/search"
-  get   "tweet/search/:query" => "tweet#search", :as => :tweet_search
   post  "tweet/create"
   post  "tweet/favorite/:id" => "tweet#favorite", :as => :tweet_favorite
   post  "tweet/unfavorite/:id" => "tweet#unfavorite", :as => :tweet_unfavorite

@@ -31,8 +31,8 @@ $replied-bg-color: #E8C241;
   font-family: Arial, Helvetica, sans-serif;
 }
 @mixin button {
-  input[type=submit] { padding:5px 20px; border:solid 2px #bbb; @include rounded; font-size:100%; cursor:pointer; background-color:#ccc; }
-  input[type=submit]:hover { background-color:#eee }
+  input[type=submit] { padding:5px 20px; border:solid 3px #ccc; @include rounded(10px); font-size:100%; cursor:pointer; background-color:#eee; margin:10px 0; }
+  input[type=submit]:hover { background-color:#ddd }
 }
 
 
@@ -67,6 +67,12 @@ html { margin-bottom:1px; height:100%; overflow-y:scroll }
   textarea#body { width:($site-width - 10px); height:60px; font-size:120%; padding:5px; }
   #countUp { float:right; font-size:120%; }
   @include button;
+}
+
+.tweetSearchBox {
+  @include button;
+  text-align:center;
+  input#query { font-size:150%; padding:5px; width:70%; }
 }
 
 .tweets {

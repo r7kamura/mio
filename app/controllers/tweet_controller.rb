@@ -74,9 +74,11 @@ class TweetController < ApplicationController
   end
 
   def search
-    @tweets = Tweet.search(params[:query]).no_room.timeline.page(params[:page])
-    @favorites = Favorite.from_tweets(@tweets)
-    @users = User.from_tweets(@tweets)
+    if params[:query]
+      @tweets = Tweet.search(params[:query]).no_room.timeline.page(params[:page])
+      @favorites = Favorite.from_tweets(@tweets)
+      @users = User.from_tweets(@tweets)
+    end
   end
 
 end

@@ -1,0 +1,7 @@
+<div class="tweetSearchBox">
+  <%= form_tag(tweet_search_url, :method => :get) do %>
+    <%= text_field_tag :query, params[:query], :placeholder => "enter search phrase ..." %></br>
+    <%= submit_tag t :search %>
+    <hr class="defloat" />
+  <% end %>
+</div>

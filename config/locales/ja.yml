@@ -5,6 +5,7 @@ ja:
   # 汎用的な名前
   post: "送信"
   edit: "編集"
+  search: "検索"
   delete: "削除"
   confirm_to_delete: "本当に削除しますか？"
   ok: "OK"
@@ -33,6 +34,8 @@ ja:
   tweet:
     home:
       tweet_please: "つぶやきをどうぞ"
+    search:
+      result: "検索"
 
   user:
     attr:
