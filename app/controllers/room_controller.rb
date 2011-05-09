@@ -19,4 +19,12 @@ class RoomController < ApplicationController
     @users = User.from_tweets(@tweets)
   end
 
+  def delete
+    @room = Room.find(params[:id])
+    if @room && @room.user_id == current_user.id
+      @room.delete
+    end
+    redirect_to room_index_url
+  end
+
 end

@@ -17,11 +17,11 @@
     <span class="reply">Reply</span>
     <span class="retweet">RT</span>
     <% if user == current_user %>
-      <span class="delete"><%= link_to "Del", tweet_delete_url(t.id), :method => "POST", :confirm => "remove?" %></span>
+      <span class="delete"><%= link_to "Del", tweet_delete_url(t.id), :method => :delete, :confirm => t("confirm_to_delete") %></span>
     <% elsif @favorites[t.id] && @favorites[t.id].any?{|fav| fav.user_id == current_user.id } %>
-      <span class="unfavorite"><%= link_to "★", tweet_unfavorite_url(t.id), :method => "POST" %></span>
+      <span class="unfavorite"><%= link_to "★", tweet_unfavorite_url(t.id), :method => :post %></span>
     <% else %>
-      <span class="favorite"><%= link_to "★", tweet_favorite_url(t.id), :method => "POST" %></span>
+      <span class="favorite"><%= link_to "★", tweet_favorite_url(t.id), :method => :post %></span>
     <% end %>
     </p>
     <hr class="defloat" />
