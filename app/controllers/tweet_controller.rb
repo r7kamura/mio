@@ -57,10 +57,26 @@ class TweetController < ApplicationController
   end
 
   def update_remote
-    @tweets = Tweet.no_room.timeline.where("id > ?", params[:id])
+    case params[:controller_name]
+    when "tweet"
+      @tweets = Tweet.no_room
+    when "room"
+      room = Room.where(:name => params[:query_name]).first or return
+      @tweets = room.tweets
+    when "user"
+      user = User.where(:name => params[:query_name]).first or return
+      @tweets = user.tweets
+    end
+    @tweets = @tweets.timeline.since(params[:id])
     @favorites = Favorite.from_tweets(@tweets)
     @users = User.from_tweets(@tweets)
     render :partial => "tweet/tweet_lists"
+  end
+
+  def search
+    @tweets = Tweet.search(params[:query]).no_room.timeline.page(params[:page])
+    @favorites = Favorite.from_tweets(@tweets)
+    @users = User.from_tweets(@tweets)
   end
 
 end

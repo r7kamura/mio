@@ -2,5 +2,11 @@
 <%= render :partial => "tweet/tweets" %>
 
 <script type="text/javascript">
-$(updateTweetsPeriodically);
+  $(function(){
+    updateTweetsPeriodically(
+      "<%= controller.controller_name %>",
+      "<%= params[:name] %>"
+    );
+  });
 </script>
+

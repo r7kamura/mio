@@ -12,5 +12,7 @@ class Tweet < ActiveRecord::Base
   scope :timeline, recent.limit(20)
   scope :user, lambda {|user| where(:user_id => user.id) }
   scope :no_room, where("room_id IS NULL")
+  scope :search, lambda {|str| where("body like ?", "%#{str.unescape(str)}%") }
+  scope :since, lambda {|id| where("id > ?", id) }
 
 end
