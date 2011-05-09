@@ -8,7 +8,7 @@
         <tr class="name">
           <td><%=t "user.attr.screen_name" %></td>
           <td>:</td>
-          <td><%= user.screen_name %></td>
+          <td><%= link_to user.screen_name, user_timeline_url(user.screen_name) %></td>
         </tr>
         <tr class="email">
           <td><%=t "user.attr.email" %></td>
