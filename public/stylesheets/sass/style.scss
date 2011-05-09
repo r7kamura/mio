@@ -31,7 +31,7 @@ $button-bg-color: #518CC6;
 }
 @mixin a_button {
   @include link_color(#333);
-  a { font-size:12px; padding:5px 10px; border:1px solid #aaa;
+  a { padding:5px 10px; border:1px solid #aaa;
     @include rounded(5px); font-weight:bold; text-shadow:0 1px 0 white; background-color:#eee;
   }
   a:hover { background-color:$button-bg-color; color:white; text-shadow:0 -1px 0 rgba(0, 0, 0, 0.3); }
@@ -109,14 +109,18 @@ html { margin-bottom:1px; height:100%; overflow-y:scroll }
 .rooms {
   .user { font-size:80%; color:#7299C1; }
   .time { font-size:80%; color:#aaa; }
-  .delete { @include a_button; }
+  .left { float:left; }
+  .delete { @include a_button; font-size:80%; float:right; margin-top:20px; }
   li { padding:5px 0; margin:5px 0; border-bottom:solid 1px #eee; }
   li:last-child { border-bottom:0; }
 }
 
 .wiki {
   .title { font-size:200%; border-bottom:solid 3px black; margin-bottom:5px; }
-  .menu { text-align:right; }
+  .menu {
+    text-align:right;
+    @include a_button;
+  }
   .back { margin-top:20px; }
   input#name { width:50%; font-size:120%; }
   textarea#body { font-size:120%; width:($site-width - 10px); padding:5px; }

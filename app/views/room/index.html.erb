@@ -4,14 +4,17 @@
     <% @rooms.each do |room| %>
       <% user = @users[room.id] %>
       <li>
-      <p class="name"><%= link_to room.name, :action => :show, :name => room.name %></p>
-      <p class="user">owner: <%= user.screen_name %></p>
-      <p class="time">time: <%= jp_time room.created_at %></p>
+      <div class="left">
+        <p class="name"><%= link_to room.name, :action => :show, :name => room.name %></p>
+        <p class="user">owner: <%= user.screen_name %></p>
+        <p class="time">time: <%= jp_time room.created_at %></p>
+      </div>
       <% if room.user_id == current_user.id %>
         <p class="delete">
         <%= link_to t("delete"), room_delete_url(room.id), :method => :delete, :confirm => t("confirm_to_delete"), :class => "button" %>
         </p>
       <% end %>
+      <hr class="defloat" />
       </li>
     <% end %>
   </ul>
