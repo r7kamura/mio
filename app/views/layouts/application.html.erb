@@ -14,12 +14,12 @@
         <p class="alert"><%= alert %></p>-->
         <div class="menu">
           <% if user_signed_in? %>
-            <span class="search"><%= link_to "Search", :tweet_search %></span>
-            <span class="wiki"><%= link_to "Wiki", :wiki_index %></span>
-            <span class="users"><%= link_to "Users", :user_index %></span>
-            <span class="setting"><%= link_to "Setting", :user_setting %></span>
-            <span class="room"><%= link_to "Rooms", :room_index %></span>
-            <span class="logout"><%= link_to "logout", :destroy_user_session %></span>
+            <span><%= link_to "Search", :tweet_search %></span>
+            <span><%= link_to "Wiki", :wiki_index %></span>
+            <span><%= link_to "Users", :user_index %></span>
+            <span><%= link_to "Setting", :user_setting %></span>
+            <span><%= link_to "Rooms", :room_index %></span>
+            <span><%= link_to "logout", :destroy_user_session %></span>
           <% end %>
         </div>
         <hr class="defloat" />

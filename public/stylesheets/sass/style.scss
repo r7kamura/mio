@@ -79,6 +79,12 @@ a {
   height: 0;
   border: 0;
   clear: both; }
+.left {
+  float:left;
+  text-align:left; }
+.right {
+  float:right;
+  text-align:right; }
 
 #header {
   background-color:black;
@@ -215,46 +221,56 @@ a {
 }
 
 .wiki {
+  .menu {
+    text-align:right;
+    @include a_button; }
   .title {
     font-size:200%;
     border-bottom:solid 3px black;
-    margin-bottom:5px; }
-  .menu {
-    text-align:right;
-    @include a_button;
+    margin-bottom:10px; }
+  .pages {
+    margin-top:20px;
+    li {
+      padding:5px 0;
+      border-bottom:1px dotted #ccc;
+      &:first-child { border-top:1px dotted #ccc; }
+      .name { font-size:120%; }
+      .date { font-style:italic; padding-top:5px; color:#aaa; }
+    }
   }
-  .back {
-    margin-top:20px; }
-  input#name {
-    width:50%;
-    font-size:120%; }
-  textarea#body {
-    font-size:120%;
-    width:($site-width - 10px);
-    padding:5px; }
-  @include button;
-  .body {
-    color:#555;
-    font-size:80%;
-    h1, h2, h3, h4, h5 {
-      padding-top:20px; color:#333; }
-    h1 {
-      border-bottom:dotted 2px #ccc;
-      margin-bottom:5px; }
-    pre {
+  .detail {
+    .back {
+      margin-top:20px; }
+    input#name {
+      width:50%;
+      font-size:120%; }
+    textarea#body {
       font-size:120%;
-      background-color:#ddd;
-      padding:10px;
-      @include rounded(10px); }
-    ol {
-      padding-left:25px; }
-    ul {
-      list-style-type:disc;
-      padding-left:20px; }
-    ul ul {
-      list-style-type:circle; }
-    ul ul ul {
-      list-style-type:decimal; }
+      width:($site-width - 10px);
+      padding:5px; }
+    .body {
+      color:#555;
+      font-size:80%;
+      h1, h2, h3, h4, h5 {
+        padding-top:20px; color:#333; }
+      h1 {
+        border-bottom:dotted 2px #ccc;
+        margin-bottom:5px; }
+      pre {
+        font-size:120%;
+        background-color:#ddd;
+        padding:10px;
+        @include rounded(10px); }
+      ol {
+        padding-left:25px; }
+      ul {
+        list-style-type:disc;
+        padding-left:20px; }
+      ul ul {
+        list-style-type:circle; }
+      ul ul ul {
+        list-style-type:decimal; }
+    }
   }
 }
 

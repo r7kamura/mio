@@ -24,4 +24,8 @@ module ApplicationHelper
     time.localtime.strftime("%y/%m/%d")
   end
 
+  def jp_date_long(time)
+    time.localtime.strftime("%Y/%m/%d")
+  end
+
 end
