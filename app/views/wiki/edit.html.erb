@@ -1,20 +1,22 @@
 <div class="wiki">
-  <h3 class="title"><%= @page.name || t(".create_page") %></h3>
-  <p class="message"><%= flash[:message] %></p>
-  <%= form_tag(wiki_update_url, :method => "post") do |f| %>
-    <%= hidden_field_tag :id, @page.id %>
+  <div class="detail">
+    <h3 class="title"><%= @page.name || t(".create_page") %></h3>
+    <p class="message"><%= flash[:message] %></p>
+    <%= form_tag(wiki_update_url, :method => "post") do |f| %>
+      <%= hidden_field_tag :id, @page.id %>
 
-    <p>
-    <%= label_tag t ".name" %><br/>
-    <%= text_field_tag :name, @page.name || params[:name] %>
-    </p>
+      <p>
+      <%= label_tag t ".name" %><br/>
+      <%= text_field_tag :name, @page.name || params[:name] %>
+      </p>
 
-    <p>
-    <%= label_tag t ".body" %><br/>
-    <%= text_area_tag :body, @page.body, :size => "60x20" %>
-    </p>
+      <p>
+      <%= label_tag t ".body" %><br/>
+      <%= text_area_tag :body, @page.body, :size => "60x20" %>
+      </p>
 
-    <p><%= submit_tag t :post %></p>
-  <% end %>
-  <p class="back"><%= link_to t("wiki.back_to_index"), wiki_index_url %></p>
+      <p><%= submit_tag t :post %></p>
+    <% end %>
+    <p class="back"><%= link_to t("wiki.back_to_index"), wiki_index_url %></p>
+  </div>
 </div>
