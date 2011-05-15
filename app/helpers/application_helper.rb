@@ -1,5 +1,15 @@
 module ApplicationHelper
 
+  def javascript_include_mathjax_tag
+    raw <<-"EOF"
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]] } });
+    </script>
+    #{javascript_include_tag "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"}
+    <meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" />
+    EOF
+  end
+
   # return random color-name for css
   def random_color(str)
     %w{black gray silver white maroon red purple fuchsia green lime olive yellow navy blue teal aquq}[str.to_i(36) % 16]
