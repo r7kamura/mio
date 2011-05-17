@@ -4,15 +4,12 @@
     <title>Mio</title>
     <%= stylesheet_link_tag :all %>
     <%= javascript_include_tag %w{jquery jquery.lazyload rails application} %>
-    <%= javascript_include_mathjax_tag %>
     <%= csrf_meta_tag %>
   </head>
   <body>
     <div id="header">
       <div class="inner">
         <h1><%= link_to "Mio", :root %></h1>
-        <!--<p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>-->
         <div class="menu">
           <% if user_signed_in? %>
             <span><%= link_to "Search", :tweet_search %></span>

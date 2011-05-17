@@ -1,0 +1,40 @@
+<% @tweets.each do |t| %>
+  <% user = @users[t.id] %>
+  <li class="tweet<%= %Q{ replied} if is_replied?(t) %>" id="<%= t.id %>">
+  <%= user_icon(user) %>
+  <div class="description">
+    <p class="body"><%= linkify sanitize(t.body) %></p>
+    <% if images = extract_images(t.body) %>
+      <p class="images">
+      <% images.each do |image| %>
+        <%= image %>
+      <% end %>
+      </p>
+    <% end %>
+    <p class="user">by <%= link_to user.screen_name || user.email, user_timeline_url(user.screen_name) %>
+    <p class="time"><%= jp_time t.created_at %></p>
+    <p class="buttons">
+    <span class="reply">Reply</span>
+    <span class="retweet">RT</span>
+    <% if user == current_user %>
+      <span class="delete"><%= link_to "Del", tweet_delete_url(t.id), :method => :delete, :confirm => t("confirm_to_delete") %></span>
+    <% elsif @favorites[t.id] && @favorites[t.id].any?{|fav| fav.user_id == current_user.id } %>
+      <span class="unfavorite"><%= link_to "★", tweet_unfavorite_url(t.id), :method => :post %></span>
+    <% else %>
+      <span class="favorite"><%= link_to "★", tweet_favorite_url(t.id), :method => :post %></span>
+    <% end %>
+    </p>
+    <hr class="defloat" />
+    <% if favorites = @favorites[t.id] %>
+      <p class="favorites">
+        <% favorites.each do |fav| %>
+          <% img = fav.user.profile_image_url %>
+          <%= link_to image_tag(img, :size => "20x20"), user_timeline_url(fav.user.screen_name) if img %>
+        <% end %>
+        liked this.
+      </p>
+    <% end %>
+  </div>
+  <hr class="defloat" />
+  </li>
+<% end %>

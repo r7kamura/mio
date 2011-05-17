@@ -30,7 +30,10 @@ class TweetController < ApplicationController
       HashTagTweet.create(:hash_tag_id => hash.id, :tweet_id => tweet.id)
     end
 
-    redirect_to request.referer
+    respond_to do |format|
+      format.html   { redirect_to request.referer }
+      format.iphone { redirect_to :root }
+    end
   end
 
   def delete

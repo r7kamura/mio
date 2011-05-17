@@ -1,4 +1,7 @@
 module ApplicationHelper
+  def iphone_title(title)
+    render :partial => "iphone/header", :locals => {:title => title}
+  end
 
   def javascript_include_mathjax_tag
     raw <<-"EOF"
