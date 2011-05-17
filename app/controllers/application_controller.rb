@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_filter :adjust_iphone, :authenticate_user!
 
   def mobile?
-    request.user_agent =~ /(Mobile\/.+Safari)/
+    request.user_agent =~ /(Mobile\/.+Safari)|(Android)/
   end
   helper_method :mobile?
 
