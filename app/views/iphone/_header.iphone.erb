@@ -1,7 +1,7 @@
 <header data-role="header">
-  <%= link_to "back", request.referer, "data-role" => "button" %>
+  <%= link_to "home", :root, "data-role" => "button", "data-icon" => "home" %>
   <h1><%= title %></h1>
   <% unless controller.controller_name == "tweet" && controller.action_name == "new" %>
-    <%= link_to "tweet", tweet_new_url, "data-role" => "button" %>
+    <%= link_to "tweet", :tweet_new, "data-role" => "button", "data-icon" => "right", "rel" => "external" %>
   <% end %>
 </header>

@@ -18,6 +18,18 @@ module ApplicationHelper
     %w{black gray silver white maroon red purple fuchsia green lime olive yellow navy blue teal aquq}[str.to_i(36) % 16]
   end
 
+  def image_tag_safe(path, opt={})
+    (path.nil? || path.blank?) ?
+      "" :
+      image_tag(path, opt)
+  end
+
+  def icon_tag(path, opt={})
+    (path.nil? || path.blank?) ?
+      image_tag("/images/default_icon.png", opt) :
+      image_tag(path, opt)
+  end
+
   def user_icon(user, opt={})
     if user.profile_image_url.nil? || user.profile_image_url.blank?
       style = "background-color:" + random_color(user.email)
