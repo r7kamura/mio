@@ -32,7 +32,13 @@ class TweetController < ApplicationController
 
     respond_to do |format|
       format.html   { redirect_to request.referer }
-      format.iphone { redirect_to :root }
+      format.iphone {
+        if params[:room_id]
+          redirect_to room_show_url(Room.find(params[:room_id]).name)
+        else
+          redirect_to :root
+        end
+      }
     end
   end
 
@@ -82,6 +88,10 @@ class TweetController < ApplicationController
       @favorites = Favorite.from_tweets(@tweets)
       @users = User.from_tweets(@tweets)
     end
+  end
+
+  def new
+    @room = Room.find(params[:room_id]) if params[:room_id]
   end
 
 end
