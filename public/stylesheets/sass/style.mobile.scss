@@ -1,0 +1,8 @@
+// ---------------- override jquery.mobile.css ----------------
+
+// ---- listview ----
+// li要素で行内文字が画面幅により省略されるのを防ぐ
+.ui-li-desc { text-overflow:normal; white-space:normal; }
+
+// li要素右側のpaddingが大きすぎるので小さく
+.ui-li-static.ui-li { padding-right:1em; }
