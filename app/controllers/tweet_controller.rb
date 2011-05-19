@@ -7,6 +7,10 @@ class TweetController < ApplicationController
     @users = User.from_tweets(@tweets)
   end
 
+  def show
+    @tweet = Tweet.find(params[:id])
+  end
+
   def user
     user = User.where(:screen_name => params[:user]).first
     redirect_to :root unless user

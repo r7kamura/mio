@@ -11,6 +11,7 @@ ja:
   ok: "OK"
   next: "次"
   prev: "前"
+  mio: "Mio"
 
   # Error
   activerecord:
