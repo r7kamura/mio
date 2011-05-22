@@ -270,6 +270,13 @@ a {
         list-style-type:circle; }
       ul ul ul {
         list-style-type:decimal; }
+      table, th, td { border:solid 1px black; }
+      table {
+        margin:10px 0;
+        border-collapse: collapse;
+      }
+      th { background-color:#ccc; }
+      td { padding: 5px; }
     }
   }
 }
