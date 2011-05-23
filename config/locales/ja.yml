@@ -38,6 +38,8 @@ ja:
       mio: "Mio"
     search:
       result: "検索"
+    favorited:
+      favorited: "Favorited"
 
   room:
     index:

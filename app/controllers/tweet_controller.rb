@@ -94,6 +94,11 @@ class TweetController < ApplicationController
     end
   end
 
+  def replies
+    params[:query] = "@#{current_user.screen_name}"
+    search
+  end
+
   def new
     @room = Room.find(params[:room_id]) if params[:room_id]
   end
