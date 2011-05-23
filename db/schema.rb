@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110509180516) do
+ActiveRecord::Schema.define(:version => 20110523184844) do
 
   create_table "favorites", :force => true do |t|
     t.integer  "tweet_id"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(:version => 20110509180516) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
+  end
+
+  create_table "storages", :force => true do |t|
+    t.string   "item_file_name"
+    t.string   "item_content_type"
+    t.integer  "item_file_size"
+    t.datetime "item_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tweets", :force => true do |t|
