@@ -87,7 +87,7 @@ class TweetController < ApplicationController
   end
 
   def search
-    if params[:query]
+    unless params[:query].nil? || params[:query].empty?
       @tweets = Tweet.search(params[:query]).no_room.timeline.page(params[:page])
       @favorites = Favorite.from_tweets(@tweets)
       @users = User.from_tweets(@tweets)

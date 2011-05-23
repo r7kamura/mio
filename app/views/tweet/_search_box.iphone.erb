@@ -1,0 +1,4 @@
+<%= form_tag(tweet_search_url, :method => :get, :style => "margin-bottom:40px") do %>
+  <%= text_field_tag :query, params[:query], :placeholder => "enter search phrase ..." %></br>
+  <%= submit_tag t :search %>
+<% end %>
