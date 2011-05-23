@@ -39,6 +39,10 @@ ja:
     search:
       result: "検索"
 
+  room:
+    index:
+      room: "Room"
+
   user:
     attr:
       screen_name: "名前"
