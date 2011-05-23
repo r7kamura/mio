@@ -5,7 +5,7 @@ class Storage < ActiveRecord::Base
       :access_key_id => Setting.amazon_s3.access_key_id,
       :secret_access_key => Setting.amazon_s3.secret_access_key,
     },
-    :bucket => Setting.s3_bucket,
-    :path => ":attachment/:id/:style.:extension",
-    :bucket => 'mybucket'
+    :backet => "mio",
+    :path => ":id_sha1.extension",
+    :url => ":id_sha1.extension",
 end
