@@ -76,6 +76,7 @@ GEM
       thor (~> 0.14.4)
     rake (0.8.7)
     sass (3.1.1)
+    settingslogic (2.0.6)
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
@@ -95,3 +96,4 @@ DEPENDENCIES
   paperclip (~> 2.3)
   rails (= 3.0.3)
   sass
+  settingslogic
