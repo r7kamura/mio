@@ -10,6 +10,17 @@
   <body>
     <div data-role="page">
       <%= yield %>
+      <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+        <ul>
+          <li><%= link_to "Home", root_url, "data-icon" => "home" %></li>
+          <li><%= link_to "Room", room_index_url, "data-icon" => "grid" %></li>
+          <li><%= link_to "Search", tweet_search_url, "data-icon" => "search" %></li>
+          <li><%= link_to "Wiki", wiki_index_url, "data-icon" => "info", "rel" => "external" %></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </body>
 </html>
+
