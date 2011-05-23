@@ -13,11 +13,6 @@ module ApplicationHelper
     EOF
   end
 
-  # return random color-name for css
-  def random_color(str)
-    %w{black gray silver white maroon red purple fuchsia green lime olive yellow navy blue teal aquq}[str.to_i(36) % 16]
-  end
-
   def image_tag_safe(path, opt={})
     (path.nil? || path.blank?) ?
       "" :
@@ -31,14 +26,7 @@ module ApplicationHelper
   end
 
   def user_icon(user, opt={})
-    if user.profile_image_url.nil? || user.profile_image_url.blank?
-      style = "background-color:" + random_color(user.email)
-      title = ""
-    else
-      style = ""
-      title = image_tag(user.profile_image_url, :size => "50x50")
-    end
-    link_to title, user_timeline_url(user.screen_name), :style => style, :class => :icon
+    link_to icon_tag(user.profile_image_url, :size => "50x50"), user_timeline_url(user.screen_name), :class => :icon
   end
 
   def jp_time(time)

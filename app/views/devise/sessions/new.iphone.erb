@@ -8,17 +8,6 @@
     <p><%= f.label t ".password" %><br />
     <%= f.password_field :password %></p>
 
-    <% if devise_mapping.rememberable? -%>
-      <p><%= f.check_box :remember_me %> <%= f.label t ".remember_me" %></p>
-    <% end -%>
-
-    <div data-role="fieldcontain">
-      <fieldset data-role="controlgroup">
-        <%= f.check_box :remember_me, :class => "custom" %>
-        <label for="remember_me"><%= t ".remember_me"%></label>
-      </fieldset>
-    </div>
-
     <p><%= f.submit t ".signin" %></p>
   <% end %>
 

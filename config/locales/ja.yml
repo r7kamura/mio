@@ -63,6 +63,7 @@ ja:
   wiki:
     back_to_index: "一覧に戻る"
     index:
+      wiki: "Wiki"
       create_page: "新しくページを作る"
     edit:
       create_page: "新しくページを作る"

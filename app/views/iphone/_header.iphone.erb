@@ -1,5 +1,5 @@
 <header data-role="header">
-  <%= link_to "home", :root, "data-role" => "button", "data-icon" => "home" %>
+  <%= link_to "back", request.referer, "data-role" => "button", "data-icon" => "arrow-l" %>
   <h1><%= title %></h1>
 
   <%# tweet#newでは表示しない, room#showではroom_idを渡す %>
