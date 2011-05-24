@@ -5,7 +5,7 @@ class Tweet < ActiveRecord::Base
   has_many :hash_tags, :through => :hash_tag_tweets
   has_many :favorites
 
-  validates :body, :presence => true, :uniqueness => {:scope => [:user_id, :room_id]}
+  validates :body, :presence => true#, :uniqueness => {:scope => [:user_id, :room_id]}
 
   scope :regular_limit, limit(20)
   scope :recent, order("created_at DESC")
