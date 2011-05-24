@@ -1,5 +1,4 @@
 class TweetController < ApplicationController
-  before_filter :authenticate_user!
 
   def home
     @tweets = Tweet.no_room.timeline.page(params[:page])

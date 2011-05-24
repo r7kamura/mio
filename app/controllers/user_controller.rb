@@ -1,5 +1,4 @@
 class UserController < ApplicationController
-  before_filter :authenticate_user!
 
   def index
     @users = User.order("created_at DESC").page(params[:page])

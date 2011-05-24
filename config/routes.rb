@@ -1,6 +1,6 @@
 Mio::Application.routes.draw do
-  get "storage/new"
-
+  get     "storage/new"
+  post    "storage/upload"
   get     "wiki" => "wiki#index", :as => :wiki_index
   delete  "wiki/:id" => "wiki#delete", :as => :wiki_delete
   get     "wiki/edit" => "wiki#edit", :as => :wiki_create

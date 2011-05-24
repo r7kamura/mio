@@ -1,4 +1,5 @@
 class WikiController < ApplicationController
+
   def index
     @pages = Page.order("updated_at DESC").page(params[:page])
   end
