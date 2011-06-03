@@ -133,22 +133,15 @@ a {
 
 .tweets {
   font-size:80%;
-  .replied {
-    background-color:$replied-bg-color; }
   .icon {
     float:left;
-    margin-right:20px;
-    width:24px;
-    height:24px;
+    margin-right:10px;
     display:block; }
   .description {
     overflow:hidden; }
   .body span.retweet {
     color:#aaa;
     @include link_color(#aaa); }
-  .images img {
-    max-width:200px;
-    max-height:200px; }
   .user {
     font-size:80%;
     color:#7299C1;
@@ -177,8 +170,9 @@ a {
     img {
       vertical-align:middle; }
   }
-  li { position:relative; padding:10px 0; border-bottom:solid 1px #eee; }
+  li { position:relative; padding:5px 0; border-bottom:solid 1px #eee; }
   li:last-child { border-bottom:0; }
+  li.replied { background:url(/images/exclamation.png) no-repeat 680px 0 }
 }
 
 .users {
