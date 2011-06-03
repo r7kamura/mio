@@ -8,3 +8,4 @@ config/database.yml
 config/application.yml
 .DS_Store
 public/stylesheets/style.css
+Gemfile.lock
