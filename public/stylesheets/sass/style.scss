@@ -1,3 +1,5 @@
+@import "reset";
+
 // variable
 $site-width: 820px;
 $replied-bg-color: #FDF490;
@@ -71,6 +73,7 @@ html {
   overflow-y:scroll }
 body {
   background-color:white;
+  line-height:1.5;
 }
 a {
   text-decoration: none; }
@@ -173,7 +176,7 @@ a {
   }
   li { position:relative; padding:5px 0; border-bottom:solid 1px #eee; }
   li:last-child { border-bottom:0; }
-  li.replied { background:url(/images/exclamation.png) no-repeat 680px 0 }
+  li.replied { background:url(/images/exclamation.png) no-repeat 680px 10px }
 }
 
 .users {
