@@ -26,6 +26,7 @@ module ApplicationHelper
   end
 
   def user_icon(user, opt={})
+    opt[:size] ||= "40x40"
     link_to icon_tag(user.profile_image_url, opt), user_timeline_url(user.screen_name), :class => :icon
   end
 

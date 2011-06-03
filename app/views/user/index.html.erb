@@ -3,7 +3,7 @@
   <ul class="userLists">
     <% @users.each do |user| %>
       <li>
-      <%= user_icon(user) %>
+      <%= user_icon(user, :size=>"50x50") %>
       <table>
         <tr class="name">
           <td><%=t "user.attr.screen_name" %></td>

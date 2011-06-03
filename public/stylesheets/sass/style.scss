@@ -147,7 +147,7 @@ a {
     color:#7299C1;
     float:left;
     @include link_color(#7299C1); }
-  .info { position:absolute; top:10px; right:0; font-size:80%; color:#aaa; }
+  .info { position:absolute; top:5px; right:0; font-size:80%; color:#aaa; }
   ._body { display:none; }
   .buttons {
     display:none;
