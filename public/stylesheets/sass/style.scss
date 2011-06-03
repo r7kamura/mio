@@ -2,6 +2,7 @@
 $site-width: 820px;
 $replied-bg-color: #E8C241;
 $button-bg-color: #518CC6;
+$bg-color: #ddd;
 
 // mixin
 @mixin centering {
@@ -69,7 +70,8 @@ html {
   margin-bottom:1px;
   overflow-y:scroll }
 body {
-  background-color:#F8E8F2; }
+  background-color:white;
+}
 a {
   text-decoration: none; }
 .inner {
@@ -87,13 +89,14 @@ a {
   text-align:right; }
 
 #header {
-  background-color:black;
+  background-color:#555;
   height:40px;
   color:white;
   margin-bottom:20px;
   font-size:20px;
   line-height:2.0;
   font-weight:bold;
+  @include shadowed;
   h1 {
     float:left;
     color:#53CCFF;
@@ -106,9 +109,8 @@ a {
       margin-left:20px; } } }
 
 #main .inner {
-  background-color:white;
   padding:20px;
-  @include rounded; }
+}
 
 .tweetBox {
   padding-bottom:30px;
@@ -136,8 +138,8 @@ a {
   .icon {
     float:left;
     margin-right:20px;
-    width:50px;
-    height:50px;
+    width:24px;
+    height:24px;
     display:block; }
   .description {
     overflow:hidden; }

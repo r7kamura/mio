@@ -1,6 +1,9 @@
 <% @tweets.each do |t| %>
   <% user = @users[t.id] %>
   <li class="tweet<%= %Q{ replied} if is_replied?(t) %>" id="<%= t.id %>">
+  <p class="info">
+    
+  </p>
   <%= user_icon(user) %>
   <div class="description">
     <p class="body"><%= linkify sanitize(t.body) %></p>

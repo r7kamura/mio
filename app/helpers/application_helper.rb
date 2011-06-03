@@ -26,7 +26,7 @@ module ApplicationHelper
   end
 
   def user_icon(user, opt={})
-    link_to icon_tag(user.profile_image_url, :size => "50x50"), user_timeline_url(user.screen_name), :class => :icon
+    link_to icon_tag(user.profile_image_url, :size => "30x30"), user_timeline_url(user.screen_name), :class => :icon
   end
 
   def jp_time(time)

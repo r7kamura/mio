@@ -42,6 +42,7 @@ GEM
       warden (~> 1.0.3)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    haml (3.1.1)
     i18n (0.5.0)
     jquery-rails (0.2.7)
       rails (~> 3.0)
@@ -96,6 +97,7 @@ DEPENDENCIES
   RedCloth
   aws-s3
   devise
+  haml
   jquery-rails
   kaminari
   mysql2 (= 0.2.6)
