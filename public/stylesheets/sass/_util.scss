@@ -1,0 +1,53 @@
+@mixin centering {
+  margin: 0 auto; }
+@mixin rounded($radius: 20px) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius; }
+@mixin top-rounded($radius: 10px) {
+  border-radius: $radius $radius 0 0;
+  -moz-border-radius: $radius $radius 0 0;
+  -webkit-border-radius: $radius $radius 0 0; }
+@mixin shadowed($radius: 10px, $color: #000) {
+  box-shadow: 0 0 $radius $color;
+  -moz-box-shadow: 0 0 $radius $color;
+  -webkit-box-shadow: 0 0 $radius $color; }
+@mixin link_color($color: $color-link) {
+  a { &:link, &:hover, &:visited { color: $color; } } }
+@mixin button {
+  input[type=submit] {
+    @include rounded(10px);
+    padding:5px 20px;
+    margin:10px 0;
+    border:solid 3px #ccc;
+    font-size:100%;
+    cursor:pointer;
+    background-color:#eee; }
+  input[type=submit]:hover {
+    background-color:#ddd; }
+  @include link_color(#333);
+  a {
+    @include rounded(5px);
+    border:1px solid #aaa;
+    padding:5px 10px;
+    font-weight:bold;
+    text-shadow:0 1px 0 white;
+    background-color:#eee; }
+  a:hover {
+    color:white;
+    background-color:$button-bg-color;
+    text-shadow:0 -1px 0 rgba(0, 0, 0, 0.3); } }
+@mixin a_button {
+  @include link_color(#333);
+  a {
+    @include rounded(5px);
+    border:1px solid #aaa;
+    padding:5px 10px;
+    font-weight:bold;
+    text-shadow:0 1px 0 white;
+    background-color:#eee; }
+  a:hover {
+    color:white;
+    background-color:$button-bg-color;
+    text-shadow:0 -1px 0 rgba(0, 0, 0, 0.3); } }
+

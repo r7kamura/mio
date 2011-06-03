@@ -1,4 +1,5 @@
 @import "reset";
+@import "util";
 
 // variable
 $site-width: 820px;
@@ -6,59 +7,6 @@ $replied-bg-color: #FDF490;
 $button-bg-color: #518CC6;
 $bg-color: #ddd;
 
-// mixin
-@mixin centering {
-  margin: 0 auto; }
-@mixin rounded($radius: 20px) {
-  border-radius: $radius;
-  -moz-border-radius: $radius;
-  -webkit-border-radius: $radius; }
-@mixin top-rounded($radius: 10px) {
-  border-radius: $radius $radius 0 0;
-  -moz-border-radius: $radius $radius 0 0;
-  -webkit-border-radius: $radius $radius 0 0; }
-@mixin shadowed($radius: 10px, $color: #000) {
-  box-shadow: 0 0 $radius $color;
-  -moz-box-shadow: 0 0 $radius $color;
-  -webkit-box-shadow: 0 0 $radius $color; }
-@mixin link_color($color: $color-link) {
-  a { &:link, &:hover, &:visited { color: $color; } } }
-@mixin button {
-  input[type=submit] {
-    @include rounded(10px);
-    padding:5px 20px;
-    margin:10px 0;
-    border:solid 3px #ccc;
-    font-size:100%;
-    cursor:pointer;
-    background-color:#eee; }
-  input[type=submit]:hover {
-    background-color:#ddd; }
-  @include link_color(#333);
-  a {
-    @include rounded(5px);
-    border:1px solid #aaa;
-    padding:5px 10px;
-    font-weight:bold;
-    text-shadow:0 1px 0 white;
-    background-color:#eee; }
-  a:hover {
-    color:white;
-    background-color:$button-bg-color;
-    text-shadow:0 -1px 0 rgba(0, 0, 0, 0.3); } }
-@mixin a_button {
-  @include link_color(#333);
-  a {
-    @include rounded(5px);
-    border:1px solid #aaa;
-    padding:5px 10px;
-    font-weight:bold;
-    text-shadow:0 1px 0 white;
-    background-color:#eee; }
-  a:hover {
-    color:white;
-    background-color:$button-bg-color;
-    text-shadow:0 -1px 0 rgba(0, 0, 0, 0.3); } }
 
 // general
 * {
@@ -92,14 +40,13 @@ a {
   text-align:right; }
 
 #header {
-  background-color:#555;
+  background-color:#777;
   height:40px;
   color:white;
   margin-bottom:20px;
   font-size:20px;
   line-height:2.0;
-  font-weight:bold;
-  @include shadowed;
+  border-bottom:2px dotted white;
   h1 {
     float:left;
     color:#53CCFF;
@@ -108,8 +55,9 @@ a {
     line-height:2.0; }
   .menu {
     float:right;
-    span {
-      margin-left:20px; } } }
+    span { margin-left:20px; @include link_color(white); }
+  }
+}
 
 #main .inner {
   padding:20px;
