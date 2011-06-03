@@ -196,7 +196,11 @@ a {
       color:#555;
       font-size:80%;
       h1, h2, h3, h4, h5 {
-        padding-top:20px; color:#333; }
+        padding-top:20px; color:black;
+        font-weight:bold;
+      }
+      h1 { font-size:180% }
+      h2 { font-size:140% }
       h1 {
         border-bottom:dotted 2px #ccc;
         margin-bottom:5px; }
