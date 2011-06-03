@@ -1,0 +1,7 @@
+.tweetBox
+  = form_tag(tweet_create_url) do
+    = hidden_field_tag :room_id, @room_id
+    = text_area_tag :body
+    = submit_tag t :post
+    %p#countUp 0
+    %hr.defloat/

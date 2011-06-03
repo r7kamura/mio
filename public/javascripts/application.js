@@ -5,6 +5,17 @@ var moveToTweetBox = function(){
   window.setTimeout(function(){ tweetBox.focus(); }, 1000);
 };
 
+var toggleButtons = function(){
+  $(".tweets li .buttons").hide();
+  $(".tweets li").live("click", function(){
+    if ($(this).find(".buttons").is(":visible")) {
+      $(".tweets li .buttons:visible").hide();
+    } else {
+      $(".tweets li .buttons:visible").hide();
+      $(this).find(".buttons").show();
+    }
+  });
+};
 
 // ReplyとRTボタンをクリックした時の挙動を設定する
 var clickRetweetAndReply = function(){
@@ -12,7 +23,7 @@ var clickRetweetAndReply = function(){
     var tweetBox = $(".tweetBox textarea");
     var text = $(this).find(".body").text();
     var user = $(this).find(".user a").text();
-    $(this).find(".buttons .retweet").click(function(){
+    $(this).find(".buttons .retweet").live("click", function(){
       tweetBox.text("RT @" + user + " " + text);
       moveToTweetBox();
       tweetBox.get(0).setSelectionRange(0, 0);
@@ -45,18 +56,13 @@ var updateTweetsPeriodically = function(controller_name, query_name){
       },
       success: function(html){
         $(".tweets ul").prepend(html);
-        clickRetweetAndReply();
       }
     });
   }, interval);
 };
 
-$(function(){
-  // focus tweet-box
-  var tweetBox = $(".tweetBox textarea");
-  tweetBox.focus();
-
-  // countup tweet-box
+// countup tweet-box
+var countUpTweetBox = function(){
   $(".tweetBox textarea").keyup(function(){
     var counter = $(this).val().length;
     $("#countUp").text(counter);
@@ -68,9 +74,21 @@ $(function(){
       $("#countUp").css("color","#666");
     }
   });
+};
 
-  clickRetweetAndReply();
+var focusTweetBox = function(){
+  $(".tweetBox textarea").focus();
+};
 
+var lazyload = function(){
   $("img").lazyload({ placeholder : "/images/grey.gif" });
+};
+
+$(function(){
+  focusTweetBox();
+  countUpTweetBox();
+  clickRetweetAndReply();
+  //toggleButtons();
+  lazyload();
 });
 

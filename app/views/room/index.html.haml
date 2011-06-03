@@ -1,0 +1,17 @@
+.rooms
+  %h3 Room List
+  %ul.roomLists
+    - @rooms.each do |room|
+      - user = @users[room.id]
+      %li
+        .left
+          %p.name= link_to room.name, :action => :show, :name => room.name
+          %p.user
+            owner: #{user.screen_name}
+          %p.time
+            time: #{jp_time room.created_at}
+        - if room.user_id == current_user.id
+          %p.delete
+            = link_to t("delete"), room_delete_url(room.id), :method => :delete, :confirm => t("confirm_to_delete"), :class => "button"
+        %hr.defloat/
+  = paginate @rooms

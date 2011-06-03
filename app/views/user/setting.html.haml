@@ -1,0 +1,11 @@
+%h3= t ".setting"
+= form_tag :action => :update do
+  %table
+    %tr
+      %td= t ".screen_name"
+      %td= text_field_tag :screen_name, @user.screen_name
+    %tr
+      %td= t ".profile_image_url"
+      %td= text_field_tag :profile_image_url, @user.profile_image_url, :size => 80
+  = submit_tag "OK"
+= flash[:message]

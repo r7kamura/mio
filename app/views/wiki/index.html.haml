@@ -1,0 +1,11 @@
+.wiki.list
+  %h3.title Wiki
+  %p.menu
+    %span.create= link_to t(".create_page"), wiki_create_url
+  %ul.pages
+    - @pages.each do |page|
+      %li
+        %p.name.left= link_to page.name, wiki_show_url(page.name)
+        %p.date.right= jp_date_long page.updated_at
+        %hr.defloat/
+  = paginate @pages

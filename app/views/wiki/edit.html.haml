@@ -1,0 +1,16 @@
+.wiki
+  .detail
+    %h3.title= @page.name || t(".create_page")
+    %p.message= flash[:message]
+    = form_tag(wiki_update_url, :method => "post") do |f|
+      = hidden_field_tag :id, @page.id
+      %p
+        = label_tag t ".name"
+        %br/
+        = text_field_tag :name, @page.name || params[:name]
+      %p
+        = label_tag t ".body"
+        %br/
+        = text_area_tag :body, @page.body, :size => "60x20"
+      %p= submit_tag t :post
+    %p.back= link_to t("wiki.back_to_index"), wiki_index_url

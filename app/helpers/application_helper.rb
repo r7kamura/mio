@@ -20,13 +20,14 @@ module ApplicationHelper
   end
 
   def icon_tag(path, opt={})
+    puts opt
     (path.nil? || path.blank?) ?
       image_tag("/images/default_icon.png", opt) :
       image_tag(path, opt)
   end
 
   def user_icon(user, opt={})
-    link_to icon_tag(user.profile_image_url, :size => "30x30"), user_timeline_url(user.screen_name), :class => :icon
+    link_to icon_tag(user.profile_image_url, opt), user_timeline_url(user.screen_name), :class => :icon
   end
 
   def jp_time(time)
