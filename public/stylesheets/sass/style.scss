@@ -149,6 +149,7 @@ a {
     @include link_color(#7299C1); }
   .info { position:absolute; top:5px; right:0; font-size:80%; color:#aaa; }
   ._body { display:none; }
+  .images img { max-height:200px; max-width:200px; }
   .buttons {
     display:none;
     font-size:80%;
