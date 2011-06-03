@@ -20,7 +20,6 @@ module ApplicationHelper
   end
 
   def icon_tag(path, opt={})
-    puts opt
     (path.nil? || path.blank?) ?
       image_tag("/images/default_icon.png", opt) :
       image_tag(path, opt)
