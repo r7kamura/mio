@@ -87,6 +87,7 @@ var autoCompleteName = function(){
         $(self).val($(self).val() + " ");
         $(self).unbind();
       });
+    $(this).keydown();
   });
 };
 
