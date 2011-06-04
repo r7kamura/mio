@@ -1,3 +1,2 @@
-%h3
-  User: #{@user.screen_name || @user.email}
+- @title = @user.screen_name
 = render :partial => "tweet/tweet_box_and_tweets"
