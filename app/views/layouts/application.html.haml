@@ -21,13 +21,14 @@
     #main
       .inner
         .gadgets
-          = link_to t("button.calendar"),
-            :gadget_calendar,
-            :remote => true,
-            :class => "calendar",
-            "data-type" => "html",
-            "data-update" => "gadget"
-          #gadget
+          - if Setting.calendar.iframe_url
+            = link_to t("button.calendar"),
+              :gadget_calendar,
+              :remote => true,
+              :class => "calendar",
+              "data-type" => "html",
+              "data-update" => "gadget"
+            #gadget
         = yield
     #footer
       .inner
