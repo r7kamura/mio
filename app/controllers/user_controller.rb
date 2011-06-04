@@ -40,7 +40,7 @@ class UserController < ApplicationController
     else
       str = str[1..-1]
     end
-    screen_names = User.where("screen_name like ?", "#{str}%").map{|u| "@#{u.screen_name}" }
+    screen_names = User.where("screen_name like ?", "#{str}%").order("screen_name").map{|u| "@#{u.screen_name}" }
     render :text => screen_names.join("\n")
   end
 end
