@@ -1,9 +1,0 @@
-<%= iphone_title(t ".room") %>
-
-<div data-role="content">
-  <ul data-role="listview">
-    <% @rooms.each do |room| %>
-      <li><%= link_to room.name, room_show_url(room.name), "rel" => "external" %></li>
-    <% end %>
-  </ul>
-</div>

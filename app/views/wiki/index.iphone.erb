@@ -1,9 +1,0 @@
-<%= iphone_title(t ".wiki") %>
-
-<div data-role="content">
-  <ul data-role="listview">
-    <% @pages.each do |page| %>
-      <li><%= link_to page.name, wiki_show_url(page.name), "rel" => "external" %></li>
-    <% end %>
-  </ul>
-</div>
