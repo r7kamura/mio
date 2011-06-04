@@ -63,6 +63,13 @@ a {
   padding:20px;
 }
 
+.gadgets {
+  margin-bottom:20px;
+  @include link_color(white);
+  & > a { background-color:#777; padding:5px 10px; margin-right:10px; @include rounded(10px); }
+  #gadget { display:none; margin-top:20px; }
+}
+
 .tweetBox {
   padding-bottom:30px;
   textarea#body {

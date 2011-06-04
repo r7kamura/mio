@@ -1,0 +1,2 @@
+module GadgetHelper
+end

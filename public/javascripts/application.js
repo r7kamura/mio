@@ -92,11 +92,23 @@ var autoCompleteName = function(){
   });
 };
 
+// simple link_to_remote
+var bindToggleCalendar = function(){
+  $(".gadgets .calendar").live("ajax:success", function(data, status, xhr){
+    var link = $(this);
+    $("#" + link.attr("data-update")).hide().html(status).slideDown("slow");
+    $("#gadget .close").click(function(){
+      $("#gadget").slideUp("slow");
+    });
+  });
+};
+
 $(function(){
   focusTweetBox();
   countUpTweetBox();
   clickRetweetAndReply();
   lazyload();
   autoCompleteName();
+  bindToggleCalendar();
 });
 

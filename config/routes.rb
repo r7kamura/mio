@@ -26,6 +26,7 @@ Mio::Application.routes.draw do
   post    "tweet/favorite/:id" => "tweet#favorite", :as => :tweet_favorite
   post    "tweet/unfavorite/:id" => "tweet#unfavorite", :as => :tweet_unfavorite
   delete  "tweet/:id" => "tweet#delete", :as => :tweet_delete
+  get     "gadget/calendar"
   root :to => "tweet#home"
 
   devise_for :users
