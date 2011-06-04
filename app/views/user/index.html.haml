@@ -1,0 +1,27 @@
+.users
+  %h3= t ".user_list"
+  %ul.userLists
+    - @users.each do |user|
+      %li
+        = user_icon(user)
+        %table
+          %tr.name
+            %td= t "user.attr.screen_name"
+            %td :
+            %td= link_to user.screen_name, user_timeline_url(user.screen_name)
+          %tr.email
+            %td= t "user.attr.email"
+            %td :
+            %td= user.email
+          %tr.lastTweet
+            %td= t ".last_tweet"
+            %td :
+            - tweet = user.tweets.recent.first
+            %td= jp_date tweet.created_at if tweet
+          %tr.count
+            %td= t "user.attr.tweets_count"
+            %td :
+            %td= user.tweets_count
+        %hr.defloat/
+  = paginate @users
+
