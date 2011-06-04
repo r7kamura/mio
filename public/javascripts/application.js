@@ -78,9 +78,10 @@ var lazyload = function(){
 // ユーザ名を補完する
 var autoCompleteName = function(){
   $(".tweetBox textarea").keydown(function(event){
-    if (event.keyCode != "219") {
+    if ((event.which != "219" && event.which != "192") || $(this).hasClass("completable")) {
       return;
     }
+    $(this).addClass("completable");
     var self = this;
     $(this).autocomplete("/user/names")
       .result(function(event, item){
