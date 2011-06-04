@@ -14,6 +14,7 @@ Mio::Application.routes.draw do
   get     "user/setting"
   get     "users" => "user#index", :as => :user_index
   post    "user/update"
+  get     "user/names"
   get     "user/:name" => "user#timeline", :as => :user_timeline
   get     "tweet/home"
   get     "tweet/show/:id" => "tweet#show", :as => :tweet_show

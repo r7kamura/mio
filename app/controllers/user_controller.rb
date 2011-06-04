@@ -31,4 +31,16 @@ class UserController < ApplicationController
     redirect_to :tweet_home
   end
 
+  # 補完用ユーザ名一覧
+  def names
+    str = params[:q]
+    if str[0] != "@"
+      render :text => ""
+      return
+    else
+      str = str[1..-1]
+    end
+    screen_names = User.where("screen_name like ?", "#{str}%").map{|u| "@#{u.screen_name}" }
+    render :text => screen_names.join("\n")
+  end
 end

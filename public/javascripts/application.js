@@ -5,18 +5,6 @@ var moveToTweetBox = function(){
   window.setTimeout(function(){ tweetBox.focus(); }, 1000);
 };
 
-var toggleButtons = function(){
-  $(".tweets li .buttons").hide();
-  $(".tweets li").live("click", function(){
-    if ($(this).find(".buttons").is(":visible")) {
-      $(".tweets li .buttons:visible").hide();
-    } else {
-      $(".tweets li .buttons:visible").hide();
-      $(this).find(".buttons").show();
-    }
-  });
-};
-
 // ReplyとRTボタンをクリックした時の挙動を設定する
 var clickRetweetAndReply = function(){
   $(".tweet").each(function(){
@@ -76,19 +64,34 @@ var countUpTweetBox = function(){
   });
 };
 
+// つぶやくフォームにフォーカスする
 var focusTweetBox = function(){
   $(".tweetBox textarea").focus();
 };
 
+
+// 画像を遅延読込みする
 var lazyload = function(){
   $("img").lazyload({ placeholder : "/images/grey.gif" });
+};
+
+// ユーザ名を補完する
+var autoCompleteName = function(){
+  $(".tweetBox textarea").each(function(){
+    var self = this;
+    $(this).autocomplete("/user/names")
+      .result(function(event, item){
+        $(self).val($(self).val() + " ");
+        $(self).unbind();
+      });
+  });
 };
 
 $(function(){
   focusTweetBox();
   countUpTweetBox();
   clickRetweetAndReply();
-  //toggleButtons();
   lazyload();
+  autoCompleteName();
 });
 

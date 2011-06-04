@@ -2,22 +2,22 @@
 %html
   %head
     %title= @title ? @title : "Mio"
-    = stylesheet_link_tag %w{fileuploader style}
-    = javascript_include_tag %w{jquery jquery.lazyload rails application}
+    = stylesheet_link_tag %w{fileuploader jquery.autocomplete style}
+    = javascript_include_tag %w{jquery jquery.lazyload jquery.autocomplete rails application}
     = csrf_meta_tag
   %body
     %header#header
-    .inner
-      %h1= link_to "Mio", :root
-      .menu
-        - if user_signed_in?
-          %span= link_to "Search", :tweet_search
-          %span= link_to "Wiki", :wiki_index
-          %span= link_to "Users", :user_index
-          %span= link_to "Setting", :user_setting
-          %span= link_to "Rooms", :room_index
-          %span= link_to "Logout", :destroy_user_session
-      %hr.defloat/
+      .inner
+        %h1= link_to "Mio", :root
+        .menu
+          - if user_signed_in?
+            %span= link_to "Search", :tweet_search
+            %span= link_to "Wiki", :wiki_index
+            %span= link_to "Users", :user_index
+            %span= link_to "Setting", :user_setting
+            %span= link_to "Rooms", :room_index
+            %span= link_to "Logout", :destroy_user_session
+        %hr.defloat/
     #main
       .inner
         = yield
