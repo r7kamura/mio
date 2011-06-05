@@ -44,6 +44,7 @@ var updateTweetsPeriodically = function(controller_name, query_name){
       },
       success: function(html){
         $(".tweets ul").prepend(html);
+        clickRetweetAndReply();
       }
     });
   }, interval);
