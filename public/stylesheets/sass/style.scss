@@ -12,8 +12,6 @@ $bg-color: #ddd;
 * {
   margin: 0;
   padding: 0; }
-ul {
-  list-style: none; }
 @include link_color(#B02217);
 html {
   height:100%;
@@ -172,12 +170,14 @@ a {
 }
 
 .wiki {
+  // index
   .menu {
     text-align:right;
     @include a_button; }
   .title {
     font-size:200%;
-    border-bottom:solid 3px black;
+    font-weight:bold;
+    border-bottom:solid 1px #ccc;
     margin-bottom:10px; }
   .pages {
     margin-top:20px;
@@ -189,6 +189,7 @@ a {
       .date { font-style:italic; padding-top:5px; color:#aaa; }
     }
   }
+  // show
   .detail {
     .back {
       margin-top:20px; }
@@ -200,36 +201,26 @@ a {
       width:($site-width - 10px);
       padding:5px; }
     .body {
-      color:#555;
+      color:#333;
+      @include link_color(#4183C4);
       font-size:80%;
-      h1, h2, h3, h4, h5 {
-        padding-top:20px; color:black;
-        font-weight:bold;
-      }
-      h1 { font-size:180% }
-      h2 { font-size:140% }
-      h1 {
-        border-bottom:dotted 2px #ccc;
-        margin-bottom:5px; }
-      pre {
-        font-size:120%;
-        background-color:#ddd;
-        padding:10px;
-        @include rounded(10px); }
-      ol {
-        padding-left:25px; }
-      ul {
-        list-style-type:disc;
-        padding-left:20px; }
-      ul ul {
-        list-style-type:circle; }
-      ul ul ul {
-        list-style-type:decimal; }
+      line-height:1.7;
+      h1, h2, h3, h4, h5 { padding-top:20px; color:black; font-weight:bold; }
+      p { margin:16px 0 0; }
+      h2 { font-size:180% }
+      h1 { margin:30px 0 0; padding:10px 0 0; font-size:240%; border-top:solid 5px #ccc; line-height:normal; }
+      h2 { margin:22px 0 0; padding:8px 0 0;  font-size:160%; border-top:solid 4px #ccc; line-height:normal; }
+      h3 { padding:20px 0 4px; font-size:120%; }
+      & > h1:first-child { margin:10px 0 0; padding:10px 0 0; border:0; }
+      & > h1:first-child { margin:10px 0 0; padding:10px 0 0; border:0; }
+      pre { font-size:120%; background-color:#eee; padding:10px; @include rounded(10px); }
+      li { list-style:disc; }
+      li li { list-style-type:circle; }
+      li li li { list-style-type:decimal; }
+      ul, ol { padding:20px 0 0 20px; }
+      ul ul, ol ol  { padding:0 0 0 20px; }
       table, th, td { border:solid 1px black; }
-      table {
-        margin:10px 0;
-        border-collapse: collapse;
-      }
+      table { margin:10px 0; border-collapse: collapse; }
       th { background-color:#ccc; }
       td { padding: 5px; }
     }
