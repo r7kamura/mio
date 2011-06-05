@@ -207,12 +207,11 @@ a {
       line-height:1.7;
       h1, h2, h3, h4, h5 { padding-top:20px; color:black; font-weight:bold; }
       p { margin:16px 0 0; }
-      h2 { font-size:180% }
       h1 { margin:30px 0 0; padding:10px 0 0; font-size:240%; border-top:solid 5px #ccc; line-height:normal; }
       h2 { margin:22px 0 0; padding:8px 0 0;  font-size:160%; border-top:solid 4px #ccc; line-height:normal; }
       h3 { padding:20px 0 4px; font-size:120%; }
       & > h1:first-child { margin:10px 0 0; padding:10px 0 0; border:0; }
-      & > h1:first-child { margin:10px 0 0; padding:10px 0 0; border:0; }
+      & > h2:first-child { margin:10px 0 0; padding:10px 0 0; border:0; }
       pre { font-size:120%; background-color:#eee; padding:10px; @include rounded(10px); }
       li { list-style:disc; }
       li li { list-style-type:circle; }
