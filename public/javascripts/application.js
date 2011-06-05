@@ -16,7 +16,7 @@ var clickRetweetAndReply = function(){
       moveToTweetBox();
       tweetBox.get(0).setSelectionRange(0, 0);
     });
-    $(this).find(".reply").click(function(){
+    $(this).find(".reply").live("click", function(){
       tweetBox.text("@" + user + " ");
       moveToTweetBox();
       var textLength = tweetBox.text().length;
