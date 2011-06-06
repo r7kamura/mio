@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mio</title>
+    <%= stylesheet_link_tag %w{jquery.mobile style.mobile} %>
+    <%= javascript_include_tag %w{jquery jquery.mobile rails application.mobile} %>
+    <%= csrf_meta_tag %>
+    <meta name="format-detection" content="telephone=no" />
+  </head>
+  <body>
+    <div data-role="page">
+      <%= yield %>
+      <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+        <ul>
+          <li><%= link_to "Home", root_url, "data-icon" => "home" %></li>
+          <li><%= link_to "Reply", tweet_replies_url, "data-icon" => "back" %></li>
+          <li><%= link_to "Room", room_index_url, "data-icon" => "grid" %></li>
+          <li><%= link_to "Search", tweet_search_url, "data-icon" => "search" %></li>
+          <li><%= link_to "Wiki", wiki_index_url, "data-icon" => "info", "rel" => "external" %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

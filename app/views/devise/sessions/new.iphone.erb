@@ -1,0 +1,15 @@
+<%= iphone_title(t ".signin") %>
+
+<div id="main" data-role="content">
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <p><%= f.label t ".email" %><br />
+    <%= f.email_field :email %></p>
+
+    <p><%= f.label t ".password" %><br />
+    <%= f.password_field :password %></p>
+
+    <p><%= f.submit t ".signin" %></p>
+  <% end %>
+
+  <%= render :partial => "devise/shared/links" %>
+</div>

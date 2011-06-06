@@ -1,0 +1,9 @@
+<% @tweets.each do |t| %>
+  <% user = @users[t.id] %>
+  <li id="<%= t.id %>" <%= raw %q{data-theme="e"} if is_replied?(t) %>>
+    <%= icon_tag(user.profile_image_url, :size => "80x80") %>
+    <h3><%= user.screen_name %></h3>
+    <p><%= linkify sanitize(t.body) %></p>
+    <p><%= jp_time t.created_at %></p>
+  </li>
+<% end %>

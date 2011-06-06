@@ -1,0 +1,14 @@
+<div class="tweets">
+  <ul data-role="listview">
+    <%= render :partial => "tweet/tweet_lists" %>
+  </ul>
+</div>
+
+<script type="text/javascript">
+  $(function(){
+    updateTweetsPeriodically(
+      "<%= controller.controller_name %>",
+      "<%= params[:name] %>"
+    );
+  });
+</script>
