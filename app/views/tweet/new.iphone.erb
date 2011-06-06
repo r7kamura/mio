@@ -1,0 +1,9 @@
+<%= iphone_title(t "tweet.home.tweet_please") %>
+
+<div data-role="content">
+  <%= form_tag(tweet_create_url) do %>
+    <%= hidden_field_tag :room_id, @room.id if @room %>
+    <%= text_area_tag :body %><br>
+    <%= submit_tag t :post %>
+  <% end %>
+</div>
