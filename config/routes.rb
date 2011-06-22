@@ -10,7 +10,7 @@ Mio::Application.routes.draw do
   get     "rooms" => "room#index", :as => :room_index
   get     "room/:name" => "room#show", :as => :room_show
   delete  "room/:id" => "room#delete", :as => :room_delete
-  get     "tag/:name" => "hash_tag#show", :as => :hash_tag_show
+  get     "tag/:name" => "tweet#hashtag", :as => :tweet_hashtag
   get     "user/setting"
   get     "users" => "user#index", :as => :user_index
   post    "user/update"
