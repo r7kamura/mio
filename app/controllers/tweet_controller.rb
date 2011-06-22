@@ -29,7 +29,8 @@ class TweetController < ApplicationController
       @tweets    = [tweet]
       @users     = User.from_tweets(@tweets)
       @favorites = []
-      Pusher["tweet"].trigger("tweet-created", render_to_string(:file => "tweet/_tweet_lists.html.haml"))
+      Pusher["tweet"].trigger("tweet-created",
+        render_to_string(:file => "tweet/_tweet_lists.html.haml", :layout => false))
     end
 
     if params[:body] =~ /&(\w+)(?:\s+|$)/
