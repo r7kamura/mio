@@ -114,6 +114,8 @@ var initPusher = function(key){
   var pusher  = new Pusher(key);
   var channel = pusher.subscribe("tweet");
   channel.bind("tweet-created", function(data) {
+    if ($(location).attr("href").match("/search")) return;
+
     $(".tweets ul").prepend(data);
     clickRetweetAndReply();
     focusTweetBox();

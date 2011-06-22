@@ -1,6 +1,10 @@
 - @tweets.each do |t|
   - user = @users[t.id]
-  %li{:class => "tweet#{%Q{ replied} if is_replied?(t)}", :id => t.id}
+  - klasses = ["tweet"]
+  - klasses.push("replied") if is_replied?(t)
+  - klasses.push("room") if t.room_id
+  %li{:class => klasses.join(" "), :id => t.id}
+    = hidden_field_tag "room#{t.room_id}", t.room_id, :class => "roomId" if t.room_id
     = user_icon user, :size=>"40x40"
     .description
       %p.user
