@@ -7,17 +7,17 @@ var moveToTweetBox = function(){
 
 // ReplyとRTボタンをクリックした時の挙動を設定する
 var clickRetweetAndReply = function(){
+  var tweetBox = $(".tweetBox textarea");
   $(".tweet").each(function(){
-    var tweetBox = $(".tweetBox textarea");
     var text = $(this).find(".body").text();
     var user = $(this).find(".user a").text();
     $(this).find(".buttons .retweet").live("click", function(){
-      tweetBox.text("RT @" + user + " " + text);
+      tweetBox.val("RT @" + user + " " + text);
       moveToTweetBox();
       tweetBox.get(0).setSelectionRange(0, 0);
     });
     $(this).find(".reply").live("click", function(){
-      tweetBox.text("@" + user + " ");
+      tweetBox.val("@" + user + " ");
       moveToTweetBox();
       var textLength = tweetBox.text().length;
       tweetBox.get(0).setSelectionRange(textLength, textLength);
@@ -105,7 +105,7 @@ var bindToggleCalendar = function(){
 };
 
 var bindTweetBox = function(){
-  $(".tweetBox form").live("ajax:success", function(data, status, xht){
+  $(".tweetBox form").live("ajax:success", function(data, status, xhr){
     $(this).find("textarea").val("");
   });
 };
