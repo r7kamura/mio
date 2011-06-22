@@ -114,9 +114,18 @@ var initPusher = function(key){
   var pusher  = new Pusher(key);
   var channel = pusher.subscribe("tweet");
   channel.bind("tweet-created", function(data) {
-    if ($(location).attr("href").match("/search")) return;
+    var href = $(location).attr("href");
 
-    $(".tweets ul").prepend(data);
+    // searchでは表示しない。roomでは現在roomと関係ないものは表示しない
+    // FIXME!!
+    if (href.match("/search")) return;
+    if (href.match("/room")) {
+      if (!data.room || !href.match(data.room)) return;
+    } else {
+      if (data.room) return;
+    }
+
+    $(".tweets ul").prepend(data.body);
     clickRetweetAndReply();
     focusTweetBox();
   });

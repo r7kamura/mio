@@ -29,8 +29,9 @@ class TweetController < ApplicationController
       @tweets    = [tweet]
       @users     = User.from_tweets(@tweets)
       @favorites = []
-      Pusher["tweet"].trigger("tweet-created",
-        render_to_string(:file => "tweet/_tweet_lists.html.haml", :layout => false))
+      Pusher["tweet"].trigger("tweet-created",{
+        :body => render_to_string(:file => "tweet/_tweet_lists.html.haml", :layout => false),
+      }.tap{|data| data[:room] = Room.find(params[:room_id]).name unless params[:room_id].empty? })
     end
 
     if params[:body] =~ /&(\w+)(?:\s+|$)/
