@@ -104,12 +104,19 @@ var bindToggleCalendar = function(){
   });
 };
 
-var initPusher = function(){
-  var pusher  = new Pusher("466fac865eff2e31d2c4");
+var bindTweetBox = function(){
+  $(".tweetBox form").live("ajax:success", function(data, status, xht){
+    $(this).find("textarea").val("");
+  });
+};
+
+var initPusher = function(key){
+  var pusher  = new Pusher(key);
   var channel = pusher.subscribe("tweet");
   channel.bind("tweet-created", function(data) {
     $(".tweets ul").prepend(data);
     clickRetweetAndReply();
+    focusTweetBox();
   });
 };
 
@@ -121,5 +128,5 @@ $(function(){
   lazyload();
   autoCompleteName();
   bindToggleCalendar();
-  initPusher();
+  bindTweetBox();
 });

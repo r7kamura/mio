@@ -1,5 +1,5 @@
 .tweetBox
-  = form_tag(tweet_create_url) do
+  = form_tag :tweet_create, :remote => true do
     = hidden_field_tag :room_id, @room_id
     = text_area_tag :body
     = submit_tag t :post

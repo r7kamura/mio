@@ -29,8 +29,7 @@ class TweetController < ApplicationController
       @tweets    = [tweet]
       @users     = User.from_tweets(@tweets)
       @favorites = []
-      html = render_to_string :partial => "tweet/tweet_lists"
-      Pusher["tweet"].trigger("tweet-created", html)
+      Pusher["tweet"].trigger("tweet-created", render_to_string(:file => "tweet/_tweet_lists.html.haml"))
     end
 
     if params[:body] =~ /&(\w+)(?:\s+|$)/
@@ -39,6 +38,7 @@ class TweetController < ApplicationController
 
     respond_to do |format|
       format.html   { redirect_to request.referer }
+      format.js     { render :nothing => true }
       format.iphone { redirect_to params[:room_id] ? room_show_url(Room.find(params[:room_id]).name) : :root }
     end
   end
