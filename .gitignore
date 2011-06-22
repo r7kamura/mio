@@ -9,3 +9,4 @@ config/application.yml
 .DS_Store
 public/stylesheets/style.css
 Gemfile.lock
+todo/*

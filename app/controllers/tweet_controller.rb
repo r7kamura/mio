@@ -1,10 +1,10 @@
 class TweetController < ApplicationController
 
   def home
-    @tweets = Tweet.no_room.timeline.page(params[:page])
+    @tweets    = Tweet.no_room.timeline.page(params[:page])
     @favorites = Favorite.from_tweets(@tweets)
-    @users = User.from_tweets(@tweets)
-  end
+    @users     = User.from_tweets(@tweets)
+    end
 
   def show
     @tweet = Tweet.find(params[:id])
@@ -20,28 +20,26 @@ class TweetController < ApplicationController
   end
 
   def create
-    tweet = Tweet.create(:body => params[:body], :user => current_user, :room_id => params[:room_id])
-
-    # Room
-    if params[:body] =~ /&(\w+)(?:\s+|$)/
-      Room.where(:name => $~[1]).first or Room.create(:name => $~[1], :user => current_user)
+    tweet = Tweet.new(
+      :body    => params[:body],
+      :user    => current_user,
+      :room_id => params[:room_id]
+    )
+    if tweet.save
+      @tweets    = [tweet]
+      @users     = User.from_tweets(@tweets)
+      @favorites = []
+      html = render_to_string :partial => "tweet/tweet_lists"
+      Pusher["tweet"].trigger("tweet-created", html)
     end
 
-    # HashTag
-    if params[:body] =~ /#(\w+)(?:\s+|$)/
-      hash = HashTag.where(:name => $~[1]).first || HashTag.create(:name => $~[1])
-      HashTagTweet.create(:hash_tag_id => hash.id, :tweet_id => tweet.id)
+    if params[:body] =~ /&(\w+)(?:\s+|$)/
+      Room.find_by_name($~[1]) or Room.create(:name => $~[1], :user => current_user)
     end
 
     respond_to do |format|
       format.html   { redirect_to request.referer }
-      format.iphone {
-        if params[:room_id]
-          redirect_to room_show_url(Room.find(params[:room_id]).name)
-        else
-          redirect_to :root
-        end
-      }
+      format.iphone { redirect_to params[:room_id] ? room_show_url(Room.find(params[:room_id]).name) : :root }
     end
   end
 
@@ -91,6 +89,12 @@ class TweetController < ApplicationController
       @favorites = Favorite.from_tweets(@tweets)
       @users = User.from_tweets(@tweets)
     end
+  end
+
+  def hashtag
+    params[:query] = "#" + params[:name]
+    search
+    render :action => :search
   end
 
   def replies

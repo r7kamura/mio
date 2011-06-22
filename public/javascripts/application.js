@@ -104,6 +104,16 @@ var bindToggleCalendar = function(){
   });
 };
 
+var initPusher = function(){
+  var pusher  = new Pusher("466fac865eff2e31d2c4");
+  var channel = pusher.subscribe("tweet");
+  channel.bind("tweet-created", function(data) {
+    $(".tweets ul").prepend(data);
+    clickRetweetAndReply();
+  });
+};
+
+
 $(function(){
   focusTweetBox();
   countUpTweetBox();
@@ -111,5 +121,5 @@ $(function(){
   lazyload();
   autoCompleteName();
   bindToggleCalendar();
+  initPusher();
 });
-
