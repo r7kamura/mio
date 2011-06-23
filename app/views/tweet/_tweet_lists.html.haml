@@ -26,7 +26,7 @@
         %p.images
           - images.each do |image|
             = image
-      - if t.favorites
+      - if t.favorites.length > 0
         %p.favorites
           - t.favorites.each do |fav|
             - img = fav.user.profile_image_url
