@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 
   validates :screen_name, :presence => true, :uniqueness => true, :format => {:with => /^[\w_]+$/}
 
+  scope :desc, order("created_at DESC")
+
   def favorite(tweet)
     Favorite.where(:tweet_id => tweet.id, :user_id => self.id).first
   end

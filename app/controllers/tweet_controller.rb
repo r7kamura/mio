@@ -1,35 +1,30 @@
 class TweetController < ApplicationController
 
   def home
-    @tweets    = Tweet.no_room.timeline.page(params[:page])
-    @favorites = Favorite.from_tweets(@tweets)
-    @users     = User.from_tweets(@tweets)
-    end
+    @tweets = Tweet.no_room.timeline.page(params[:page])
+  end
 
   def show
     @tweet = Tweet.find(params[:id])
   end
 
   def user
-    user = User.where(:screen_name => params[:user]).first
-    redirect_to :root unless user
-
-    @tweets = Tweet.user(user).timeline.page(params[:page])
-    @favorites = Favorite.from_tweets(@tweets)
-    @users = User.from_tweets(@tweets)
+    if user = User.find_by_screen_name(params[:user])
+      @tweets = Tweet.user(user).timeline.page(params[:page])
+    else
+      redirect_to :root unless user
+    end
   end
 
   def create
     tweet = Tweet.new(
       :body    => params[:body],
-      :user    => current_user,
-      :room_id => params[:room_id]
+      :room_id => params[:room_id],
+      :user    => current_user
     )
     if tweet.save
-      @tweets    = [tweet]
-      @users     = User.from_tweets(@tweets)
-      @favorites = []
-      Pusher["tweet"].trigger("tweet-created",{
+      @tweets = [tweet]
+      Pusher["tweet"].trigger("tweet-created", {
         :body => render_to_string(:file => "tweet/_tweet_lists.html.haml", :layout => false),
       }.tap{|data| data[:room] = Room.find(params[:room_id]).name unless params[:room_id].empty? })
     end
@@ -80,16 +75,12 @@ class TweetController < ApplicationController
       @tweets = user.tweets
     end
     @tweets = @tweets.timeline.since(params[:id])
-    @favorites = Favorite.from_tweets(@tweets)
-    @users = User.from_tweets(@tweets)
     render :partial => "tweet/tweet_lists"
   end
 
   def search
     unless params[:query].nil? || params[:query].empty?
       @tweets = Tweet.search(params[:query]).no_room.timeline.page(params[:page])
-      @favorites = Favorite.from_tweets(@tweets)
-      @users = User.from_tweets(@tweets)
     end
   end
 

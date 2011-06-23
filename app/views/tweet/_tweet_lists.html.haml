@@ -1,5 +1,5 @@
 - @tweets.each do |t|
-  - user = @users[t.id]
+  - user = t.user
   - klasses = ["tweet"]
   - klasses.push("replied") if is_replied?(t)
   - klasses.push("room") if t.room_id
@@ -16,7 +16,7 @@
           %span.retweet RT
           - if user == current_user
             %span.delete= link_to "Del", tweet_delete_url(t.id), :method => :delete, :confirm => t("confirm_to_delete")
-          - elsif @favorites[t.id] && @favorites[t.id].any?{|fav| fav.user_id == current_user.id }
+          - elsif t.favorites && t.favorites.any?{|fav| fav.user_id == current_user.id }
             %span.unfavorite= link_to "★", tweet_unfavorite_url(t.id), :method => :post
           - else
             %span.favorite= link_to "★", tweet_favorite_url(t.id), :method => :post
@@ -26,9 +26,9 @@
         %p.images
           - images.each do |image|
             = image
-      - if favorites = @favorites[t.id]
+      - if t.favorites
         %p.favorites
-          - favorites.each do |fav|
+          - t.favorites.each do |fav|
             - img = fav.user.profile_image_url
             = link_to image_tag(img, :size => "20x20"), user_timeline_url(fav.user.screen_name) if img
           liked this.

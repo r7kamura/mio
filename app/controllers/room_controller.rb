@@ -14,8 +14,6 @@ class RoomController < ApplicationController
 
     @room_id = @room.id
     @tweets = @room.tweets.timeline.page(params[:page])
-    @favorites = Favorite.from_tweets(@tweets)
-    @users = User.from_tweets(@tweets)
   end
 
   def delete
