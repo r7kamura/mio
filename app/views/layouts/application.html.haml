@@ -2,8 +2,8 @@
 %html
   %head
     %title= @title ? @title : "Mio"
-    = stylesheet_link_tag %w{fileuploader jquery.autocomplete style}
-    = javascript_include_tag %w{jquery jquery.lazyload jquery.autocomplete rails pusher application}
+    = stylesheet_link_tag %w{fileuploader jquery.autocomplete prettify style}
+    = javascript_include_tag %w{jquery jquery.lazyload jquery.autocomplete rails pusher prettify application}
     :javascript
       $(function(){ initPusher("#{Setting.pusher.key}") });
     = csrf_meta_tag
