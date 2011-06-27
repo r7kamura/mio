@@ -132,6 +132,77 @@ var initPusher = function(key){
 };
 
 
+// ---- スライド関係 ----
+var bindKey = function(){
+  $(window).keyup(function(e){
+    if     (e.keyCode==37) { goPrev() }
+    else if(e.keyCode==38) { goFirst()}
+    else if(e.keyCode==39) { goNext() }
+    else if(e.keyCode==40) { goLast() }
+  });
+};
+
+var show = function(jObj){
+  if (jObj.is("section")) {
+    $("section:visible").removeClass("current").hide();
+    jObj.fadeIn();
+    jObj.css("display", "block").addClass("current");
+    //paging();
+  }
+};
+var goPrev = function(){ show($("section.current").prev()) };
+var goNext = function(){ show($("section.current").next()) };
+var goLast = function(){ show($("section:last")) };
+var goFirst= function(){ show($("section:first")) };
+
+var separateSection = function(selector) {
+  $(selector).each(function(){
+    $(this).nextUntil(selector).andSelf().wrapAll('<section>');
+  });
+};
+
+var hideOutside = function(){
+  $("header").hide();
+  $("footer").hide();
+  $(".menu").hide();
+  $(".title").hide();
+  $(".back").hide();
+  $("article").children(":not(section)").hide();
+};
+
+var putSlideButton = function(){
+  var id ="slideButton";
+  $("body").append('<p id="'+id+'">slide</p>');
+  $("#"+id).click(function(){
+    $(this).hide();
+    toSlideMode();
+  });
+};
+
+var scaleUpSlide = function(){
+  $("body").css("font-size", "3em");
+  $("#main .inner").css("width", "95%");
+};
+
+var toSlideMode = function(){
+  separateSection("h2");
+  hideOutside();
+  scaleUpSlide();
+  goFirst();
+  bindKey();
+};
+
+var putSocialButton = function(){
+    $('.facebook').socialbutton('facebook_like', {
+      show_faces: false,
+      button: "button_count",
+      height: 20,
+    });
+    $('.twitter').socialbutton('twitter', {button: "horizontal"});
+    $('.hatena').socialbutton('hatena');
+};
+// ---- end スライド関係 ----
+
 $(function(){
   focusTweetBox();
   countUpTweetBox();
