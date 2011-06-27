@@ -171,6 +171,8 @@ a {
 
 .wiki {
   // index
+  font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+  line-height: 1.65;
   .menu {
     text-align:right;
     @include a_button; }
@@ -201,9 +203,9 @@ a {
       width:($site-width - 10px);
       padding:5px; }
     .body {
+      font-size: .9em;
       color:#333;
       @include link_color(#4183C4);
-      font-size:80%;
       line-height:1.7;
       h1, h2, h3, h4, h5 { padding-top:20px; color:black; font-weight:bold; }
       p { margin:16px 0 0; }
@@ -212,7 +214,18 @@ a {
       h3 { padding:20px 0 4px; font-size:120%; }
       & > h1:first-child { margin:10px 0 0; padding:10px 0 0; border:0; }
       & > h2:first-child { margin:10px 0 0; padding:10px 0 0; border:0; }
-      pre { font-size:120%; background-color:#eee; padding:10px; @include rounded(10px); }
+      pre {
+        margin: 1em 0;
+        padding: 1em;
+        background: #F6F6F6 url(/images/bg.png) repeat 0 0;
+        font-family: "Monaco", "Andale Mono", monospace;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        overflow: auto;
+        @include rounded(3px);
+        @include shadow_in(0, 0, 8px, #999);
+        code.ms-gothic { font-family: "MS Gothic", "Monaco", "Andale Mono", monospace; }
+      }
       li { list-style:disc; }
       li li { list-style-type:circle; }
       li li li { list-style-type:decimal; }

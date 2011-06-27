@@ -50,4 +50,8 @@
     color:white;
     background-color:$button-bg-color;
     text-shadow:0 -1px 0 rgba(0, 0, 0, 0.3); } }
-
+@mixin shadow_in($a, $b, $c, $color) {
+  box-shadow: inset $a $b $c $color;
+  -moz-box-shadow: inset $a $b $c $color;
+  -webkit-box-shadow: inset $a $b $c $color;
+}
