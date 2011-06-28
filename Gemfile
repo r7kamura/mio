@@ -18,3 +18,6 @@ group :development do
   gem 'erb2haml'
 end
 
+group :development, :test do
+  gem "rspec-rails"
+end
