@@ -2,6 +2,6 @@
   = form_tag :tweet_create, :remote => true do
     = hidden_field_tag :room_id, @room_id
     = text_area_tag :body
-    = submit_tag t :post
-    %p#countUp 0
+    = submit_tag t(:post), :class => "button"
+    /%p#countUp 0
     %hr.defloat/

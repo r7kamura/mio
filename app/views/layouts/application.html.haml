@@ -2,7 +2,7 @@
 %html
   %head
     %title= @title ? @title : "Mio"
-    = stylesheet_link_tag %w{fileuploader jquery.autocomplete prettify style}
+    = stylesheet_link_tag %w{fileuploader jquery.autocomplete prettify gh-buttons style}
     = javascript_include_tag %w{jquery jquery.lazyload jquery.autocomplete rails pusher prettify application}
     :javascript
       $(function(){ initPusher("#{Setting.pusher.key}") });
@@ -16,8 +16,8 @@
             %span= link_to "Search", :tweet_search
             %span= link_to "Wiki", :wiki_index
             %span= link_to "Users", :user_index
-            %span= link_to "Setting", :user_setting
             %span= link_to "Rooms", :room_index
+            %span= link_to "Setting", :user_setting
             %span= link_to "Logout", :destroy_user_session
         %hr.defloat/
     #main
@@ -32,6 +32,3 @@
               "data-update" => "gadget"
             #gadget
         = yield
-    %footer#footer
-      .inner
-        Mio 2011 &copy; Some Rights Reserved.

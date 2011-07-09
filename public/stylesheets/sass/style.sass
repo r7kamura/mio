@@ -1,0 +1,309 @@
+@import "reset"
+@import "util"
+
+// variable
+$site-width: 820px
+$replied-bg-color: #FDF490
+$button-bg-color: #518CC6
+$bg-color: #ddd
+
+
+// general
+*
+  margin: 0
+  padding: 0
+@include link_color(#B02217)
+html
+  height: 100%
+  margin-bottom: 1px
+  overflow-y: scroll
+body
+  position: relative
+  line-height: 1.5
+  background-color: white
+
+a
+  text-decoration: none
+.inner
+  @include centering
+  width: $site-width
+.defloat
+  height: 0
+  border: 0
+  clear: both
+.left
+  float: left
+  text-align: left
+.right
+  float: right
+  text-align: right
+
+#header
+  z-index: 50
+  position: fixed
+  top: 0
+  width: 100%
+  height: 2em
+  padding: .3em 0
+  line-height: 2.0
+  font-weight: bold
+  color: white
+  background-color: rgba(0, 0, 0, 0.6)
+  h1
+    float: left
+    line-height: 2.0
+    color: #53CCFF
+    @include link_color(#53CCFF)
+  .menu
+    float: right
+    font-size: 1em
+    span
+      margin-left: 20px
+      padding: .2em
+      border-bottom: 2px dotted white
+      @include rounded(6em 2em)
+      @include link_color(white)
+      &:hover
+        @include link_color(#53CCFF)
+        border-bottom: 2px dotted #53CCFF
+
+#main .inner
+  padding: 3em 20px 1em
+
+
+.gadgets
+  margin-bottom: 20px
+  @include link_color(white)
+  & > a
+    background-color: #777
+    padding: 5px 10px
+    margin-right: 10px
+    @include rounded(10px)
+  #gadget
+    display: none
+    margin-top: 20px
+
+
+.tweetBox
+  padding-bottom: 30px
+  textarea#body
+    width: ($site-width - 10px)
+    height: 60px
+    padding: 5px
+    border: 1px solid #bbb
+    font-size: 120%
+    @include rounded(3px)
+  #countUp
+    float: right
+    font-size: 120%
+  .button
+    font-size: 1em
+
+
+.tweetSearchBox
+  @include button
+  text-align: center
+  input#query
+    font-size: 150%
+    padding: 5px
+    width: 70%
+
+.tweets
+  font-size: 80%
+  .icon
+    float: left
+    margin-right: 10px
+    display: block
+  .description
+    overflow: hidden
+  .body span.retweet
+    color: #aaa
+    @include link_color(#aaa)
+  .user
+    font-size: 80%
+    color: #7299C1
+    float: left
+    @include link_color(#7299C1)
+  .info
+    position: absolute
+    top: 5px
+    right: 0
+    font-size: 80%
+    color: #aaa
+  ._body
+    display: none
+  .images img
+    max-height: 200px
+    max-width: 200px
+  .buttons
+    display: none
+    font-size: 80%
+    color: #aaa
+    float: left
+    margin-left: 20px
+    @include link_color(#aaa)
+    span
+      margin-right: 5px
+    span: hover
+      color: black
+      cursor: pointer
+    .unfavorite
+      @include link_color(#FFC66D)
+  li:hover .buttons
+    display: block
+  .favorites
+    color: #aaa
+    img
+      vertical-align: middle
+  li
+    position: relative
+    padding: 5px 0
+    border-bottom: solid 1px #eee
+  li:last-child
+    border-bottom: 0
+  li.replied
+    background: url(/images/exclamation.png) no-repeat 680px 10px
+
+
+.users
+  li
+    padding: 5px 0
+    margin: 5px 0
+    border-bottom: solid 1px #eee
+  li: last-child
+    border-bottom: 0
+  .icon
+    float: left
+    margin-right: 20px
+    width: 50px
+    height: 50px
+    display: block
+
+
+.rooms
+  .user
+    font-size: 80%
+    color: #7299C1
+  .time
+    font-size: 80%
+    color: #aaa
+  .left
+    float: left
+  .delete
+    @include a_button
+    font-size: 80%
+    float: right
+    margin-top: 20px
+  li
+    padding: 5px 0
+    margin: 5px 0
+    border-bottom: solid 1px #eee
+  li: last-child
+    border-bottom: 0
+
+
+.wiki
+  font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif
+  line-height: 1.65
+  .menu
+    text-align: right
+    @include a_button
+  .title
+    font-size: 200%
+    font-weight: bold
+    border-bottom: solid 1px #ccc
+    margin-bottom: 10px
+  .pages
+    margin-top: 20px
+    li
+      padding: 5px 0
+      border-bottom: 1px dotted #ccc
+      &:first-child
+        border-top: 1px dotted #ccc
+      .name
+        font-size: 120%
+      .date
+        font-style: italic
+        padding-top: 5px
+        color: #aaa
+  .detail
+    .back
+      margin-top: 20px
+    input#name
+      width: 50%
+      font-size: 120%
+    textarea#body
+      font-size: 120%
+      width: ($site-width - 10px)
+      padding: 5px
+    .body
+      font-size: .9em
+      color: #333
+      @include link_color(#4183C4)
+      line-height: 1.7
+      h1, h2, h3, h4, h5
+        padding-top: 20px
+        color: black
+        margin-top: 2em
+        &:first-child
+          margin-top: 0
+      p
+        margin: 16px 0 0
+      h1
+        margin: 30px 0 0
+        padding: 10px 0 0
+        font-size: 240%
+      h2
+        margin: 22px 0 0
+        padding: 8px 0 0
+        font-size: 160%
+      h3
+        padding: 20px 0 4px
+        font-size: 120%
+      & > h1:first-child
+        margin: 10px 0 0
+        padding: 10px 0 0
+        border: 0
+      & > h2:first-child
+        margin: 10px 0 0
+        padding: 10px 0 0
+        border: 0
+      pre
+        margin: 1em 0
+        padding: 1em
+        background: #F6F6F6 url(/images/bg.png) repeat 0 0
+        font-family: "Monaco", "Andale Mono", monospace
+        white-space: pre-wrap
+        word-wrap: break-word
+        overflow: auto
+        @include rounded(3px)
+        @include shadow_in(0, 0, 8px, #999)
+        code.ms-gothic
+          font-family: "MS Gothic", "Monaco", "Andale Mono", monospace
+      li
+        list-style: disc
+      li li
+        list-style-type: circle
+      li li li
+        list-style-type: decimal
+      ul, ol
+        padding: 20px 0 0 20px
+      ul ul, ol ol
+        padding: 0 0 0 20px
+      table, th, td
+        border: solid 1px black
+      table
+        margin: 10px 0
+        border-collapse: collapse
+      th
+        background-color: #ccc
+      td
+        padding: 5px
+
+
+.devise.links
+  margin-top: 20px
+
+#footer
+  text-align: center
+  padding: 20px 0

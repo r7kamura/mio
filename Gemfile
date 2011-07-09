@@ -20,4 +20,7 @@ end
 
 group :development, :test do
   gem "rspec-rails"
+  gem "spork", ">= 0.9.0.rc2"
+  gem "parallel_tests"
+  gem "watchr"
 end
