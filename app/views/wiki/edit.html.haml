@@ -12,5 +12,5 @@
         = label_tag t ".body"
         %br/
         = text_area_tag :body, @page.body, :size => "60x20"
-      %p= submit_tag t :post
+      %p= submit_tag t(:post), :class => "button"
     %p.back= link_to t("wiki.back_to_index"), wiki_index_url

@@ -1,16 +1,17 @@
-%h2= t ".signin"
-= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  %p
-    = f.label t ".email"
-    %br/
-    = f.email_field :email
-  %p
-    = f.label t ".password"
-    %br/
-    = f.password_field :password
-  - if devise_mapping.rememberable?
+.loginForm
+  %h2= t ".signin"
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
     %p
-      = f.check_box :remember_me
-      = f.label t ".remember_me"
-  %p= f.submit t ".signin"
-= render :partial => "devise/shared/links"
+      = f.label t ".email"
+      %br/
+      = f.email_field :email
+    %p
+      = f.label t ".password"
+      %br/
+      = f.password_field :password
+    - if devise_mapping.rememberable?
+      %p
+        = f.check_box :remember_me
+        = f.label t ".remember_me"
+    %p= f.submit t(".signin"), :class => "button"
+  = render :partial => "devise/shared/links"

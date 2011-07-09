@@ -7,5 +7,5 @@
     %tr
       %td= t ".profile_image_url"
       %td= text_field_tag :profile_image_url, @user.profile_image_url, :size => 80
-  = submit_tag "OK"
+  = submit_tag "OK", :class => "button"
 = flash[:message]

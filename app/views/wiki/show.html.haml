@@ -8,9 +8,9 @@
   .detail
     %h3.title= @page.name
     %p.menu
-      %span= link_to t(:edit), wiki_edit_url(@page.name)
-      %span= link_to t(:delete), wiki_delete_url(@page.id), :method => "delete", :confirm => t("confirm_to_delete")
-      %span= link_to "slide", "", :onclick => "toSlideMode();return false;"
+      %span= link_to t(:edit), wiki_edit_url(@page.name), :class => "button"
+      %span= link_to t(:delete), wiki_delete_url(@page.id), :method => "delete", :confirm => t("confirm_to_delete"), :class => "button"
+      %span= link_to "slide", "", :onclick => "toSlideMode();return false;", :class => "button"
 
     .body= prettify_to_html @page.body
     %p.back= link_to t("wiki.back_to_index"), wiki_index_url
