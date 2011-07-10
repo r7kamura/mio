@@ -15,8 +15,8 @@ class WikiController < ApplicationController
   end
 
   def update
-    attr = { name: params[:name], body: params[:body] }
-    @page = (params[:id].nil? || params[:id].empty?) ?
+    attr = { name: replace_illegal_name(params[:name]), body: params[:body] }
+    @page = params[:id].blank? ?
       Page.new(attr) :
       Page.find(params[:id]).tap{|p| p.attributes = attr}
     @page.save ?
@@ -29,4 +29,8 @@ class WikiController < ApplicationController
     redirect_to wiki_index_url
   end
 
+  private
+  def replace_illegal_name(name)
+    name.gsub("/", "-")
+  end
 end
