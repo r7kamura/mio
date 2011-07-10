@@ -31,6 +31,6 @@ class WikiController < ApplicationController
 
   private
   def replace_illegal_name(name)
-    name.gsub("/", "-")
+    name.gsub("/", "-").gsub(".", "-")
   end
 end
