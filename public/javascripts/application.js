@@ -93,17 +93,6 @@ var autoCompleteName = function(){
   });
 };
 
-// simple link_to_remote
-var bindToggleCalendar = function(){
-  $(".gadgets .calendar").live("ajax:success", function(data, status, xhr){
-    var link = $(this);
-    $("#" + link.attr("data-update")).hide().html(status).slideDown("slow");
-    $("#gadget .close").click(function(){
-      $("#gadget").slideUp("slow");
-    });
-  });
-};
-
 var bindTweetBox = function(){
   $(".tweetBox form").live("ajax:success", function(data, status, xhr){
     $(this).find("textarea").val("");
@@ -209,6 +198,5 @@ $(function(){
   clickRetweetAndReply();
   lazyload();
   autoCompleteName();
-  bindToggleCalendar();
   bindTweetBox();
 });
