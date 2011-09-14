@@ -2,9 +2,6 @@ defaults: &defaults
   amazon_s3:
     access_key_id:
     secret_access_key:
-  calendar:
-    iframe_url:
-    private_url:
   pusher:
     app_id:
     key:
