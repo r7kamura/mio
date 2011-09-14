@@ -9,7 +9,6 @@ gem "haml"
 gem "sass"
 gem "kaminari", "= 0.9.4"
 gem "RedCloth"
-gem "aws-s3"
 gem "settingslogic"
 gem "pusher"
 
