@@ -36,7 +36,6 @@ GEM
       xml-simple
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
-    cocaine (0.1.0)
     crack (0.1.8)
     devise (1.4.1)
       bcrypt-ruby (~> 2.1.2)
@@ -66,10 +65,6 @@ GEM
     multi_json (1.0.3)
     mysql2 (0.2.6)
     orm_adapter (0.0.5)
-    paperclip (2.3.12)
-      activerecord (>= 2.3.0)
-      activesupport (>= 2.3.2)
-      cocaine (>= 0.0.2)
     parallel (0.5.5)
     parallel_tests (0.4.21)
       parallel
@@ -141,7 +136,6 @@ DEPENDENCIES
   jquery-rails
   kaminari (= 0.9.4)
   mysql2 (= 0.2.6)
-  paperclip (~> 2.3)
   parallel_tests
   pusher
   rails (= 3.0.3)
