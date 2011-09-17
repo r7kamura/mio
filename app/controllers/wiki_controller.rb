@@ -10,6 +10,11 @@ class WikiController < ApplicationController
     redirect_to wiki_edit_url(params[:name]) unless @page
   end
 
+  def search
+    @pages = Page.search(params[:query]).order("updated_at DESC").page(params[:page])
+    render :action => :index
+  end
+
   def edit
     @page = Page.find_by_name(params[:name]) if params[:name]
     @page ||= Page.new

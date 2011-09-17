@@ -3,6 +3,8 @@ Mio::Application.routes.draw do
   delete  "wiki/:id" => "wiki#delete", :as => :wiki_delete
   get     "wiki/edit" => "wiki#edit", :as => :wiki_create
   get     "wiki/edit/:name" => "wiki#edit", :as => :wiki_edit
+  get     "wiki/search"
+  get     "wiki/search/:query" => "wiki#search", :as => :wiki_search
   post    "wiki/update"
   get     "wiki/:name" => "wiki#show", :as => :wiki_show
   get     "rooms" => "room#index", :as => :room_index

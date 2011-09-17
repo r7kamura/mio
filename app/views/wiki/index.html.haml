@@ -1,3 +1,8 @@
+= form_tag "wiki/search", :method => :get do
+  = label_tag :query, t(".search")
+  = text_field_tag :query
+  = submit_tag "OK"
+
 .wiki.list
   %h3.title Wiki
   %p.menu
