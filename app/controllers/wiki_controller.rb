@@ -2,6 +2,7 @@ class WikiController < ApplicationController
 
   def index
     @pages = Page.order("updated_at DESC").page(params[:page])
+    @page  = Page.find_by_name("top")
   end
 
   def show

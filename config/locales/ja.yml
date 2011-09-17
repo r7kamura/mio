@@ -69,6 +69,7 @@ ja:
     index:
       wiki: "Wiki"
       create_page: "新しくページを作る"
+      edit_this_page: "このページを編集する"
     edit:
       create_page: "新しくページを作る"
       name: "ページタイトル"

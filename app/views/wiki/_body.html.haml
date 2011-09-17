@@ -1,0 +1,7 @@
+.body= prettify_to_html @page.body
+
+:javascript
+  $(function(){
+    $("pre").addClass("prettyprint");
+    prettyPrint();
+  });
