@@ -12,7 +12,8 @@
       = link_to t(".create_page"), wiki_create_url, :class => "button"
 
   - if @page
-    =render :partial => "body"
+    .detail
+      =render :partial => "body"
 
   %ul.pages
     - @pages.each do |page|
