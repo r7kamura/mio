@@ -12,7 +12,7 @@ var clickRetweetAndReply = function(){
     var text = $(this).find(".body").text();
     var user = $(this).find(".user a").text();
     $(this).find(".buttons .retweet").live("click", function(){
-      tweetBox.val("RT @" + user + " " + text);
+      tweetBox.val(" RT @" + user + " " + text);
       moveToTweetBox();
       tweetBox.get(0).setSelectionRange(0, 0);
     });
