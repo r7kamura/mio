@@ -35,10 +35,18 @@ class TweetController < ApplicationController
             :body => render_to_string(:file => "tweet/_tweet_lists.html.haml", :layout => false),
           }.tap{|data| data[:room] = Room.find(params[:room_id]).name unless params[:room_id].empty? })
         end
-
         redirect_to request.referer
       end
-      format.js     { render :nothing => true }
+      format.js do
+        # pusher
+        if tweet.save
+          @tweets = [tweet]
+          Pusher["tweet"].trigger("tweet-created", {
+            :body => render_to_string(:file => "tweet/_tweet_lists.html.haml", :layout => false),
+          }.tap{|data| data[:room] = Room.find(params[:room_id]).name unless params[:room_id].empty? })
+        end
+        render :nothing => true
+      end
       format.iphone { redirect_to params[:room_id] ? room_show_url(Room.find(params[:room_id]).name) : :root }
     end
   end
