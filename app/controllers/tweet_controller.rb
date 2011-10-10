@@ -22,19 +22,22 @@ class TweetController < ApplicationController
       :room_id => params[:room_id],
       :user    => current_user
     )
-    if tweet.save
-      @tweets = [tweet]
-      Pusher["tweet"].trigger("tweet-created", {
-        :body => render_to_string(:file => "tweet/_tweet_lists.html.haml", :layout => false),
-      }.tap{|data| data[:room] = Room.find(params[:room_id]).name unless params[:room_id].empty? })
-    end
-
     if params[:body] =~ /&(\w+)(?:\s+|$)/
       Room.find_by_name($~[1]) or Room.create(:name => $~[1], :user => current_user)
     end
 
     respond_to do |format|
-      format.html   { redirect_to request.referer }
+      format.html do
+        # pusher
+        if tweet.save
+          @tweets = [tweet]
+          Pusher["tweet"].trigger("tweet-created", {
+            :body => render_to_string(:file => "tweet/_tweet_lists.html.haml", :layout => false),
+          }.tap{|data| data[:room] = Room.find(params[:room_id]).name unless params[:room_id].empty? })
+        end
+
+        redirect_to request.referer
+      end
       format.js     { render :nothing => true }
       format.iphone { redirect_to params[:room_id] ? room_show_url(Room.find(params[:room_id]).name) : :root }
     end
