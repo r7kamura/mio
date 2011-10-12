@@ -47,7 +47,10 @@ class TweetController < ApplicationController
         end
         render :nothing => true
       end
-      format.iphone { redirect_to params[:room_id] ? room_show_url(Room.find(params[:room_id]).name) : :root }
+      format.iphone do
+        tweet.save
+        redirect_to params[:room_id] ? room_show_url(Room.find(params[:room_id]).name) : :root
+      end
     end
   end
 
