@@ -4,7 +4,7 @@ module TweetHelper
     str = linkify_url(str)
     str = linkify_room(str)
     str = linkify_hash_tag(str)
-    str = linkify_wiki(str)
+    #str = linkify_wiki(str)
     str = prettify_retweet(str)
     str = linkify_user(str)
     str = prettify_linebreak(str)
