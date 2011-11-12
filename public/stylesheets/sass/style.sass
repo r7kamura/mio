@@ -6,6 +6,7 @@ $site-width: 820px
 $replied-bg-color: #FDF490
 $button-bg-color: #518CC6
 $bg-color: #ddd
+$color-link-blue: #7299C1
 
 
 // general
@@ -73,6 +74,7 @@ a
 
 .tweetBox
   padding-bottom: 30px
+  margin-top: 30px
   textarea#body
     width: ($site-width - 10px)
     height: 60px
@@ -95,61 +97,73 @@ a
     padding: 5px
     width: 70%
 
-.tweets
+.tweet
   font-size: 80%
+  position: relative
+  padding: 10px 0 5px
+  border-bottom: solid 1px #eee
+  line-height: 1.3
+
+  &:last-child
+    border-bottom: 0
+  &.replied
+    background: #FCF9E9
   .icon
     float: left
-    margin-right: 10px
-    display: block
+    margin-right: 5px
+  .user
+    width: 100px
+    float: left
+    margin-right: 5px
+    @include link_color($color-link-blue)
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    -o-text-overflow: ellipsis
+    -webkit-text-overflow: ellipsis
+  .body
+    margin-right: 100px
+    overflow: hidden
+  &:hover .time
+    display: none
   .description
     overflow: hidden
   .body span.retweet
     color: #aaa
     @include link_color(#aaa)
-  .user
-    font-size: 80%
-    color: #7299C1
-    float: left
-    @include link_color(#7299C1)
+  ._body
+    display: none
+  .images img
+    max-height: 200px
+    max-width: 200px
   .info
     position: absolute
     top: 5px
     right: 0
     font-size: 80%
     color: #aaa
-  ._body
-    display: none
-  .images img
-    max-height: 200px
-    max-width: 200px
-  .buttons
-    display: none
-    font-size: 80%
-    color: #aaa
-    float: left
-    margin-left: 20px
-    @include link_color(#aaa)
-    span
-      margin-right: 5px
-    span: hover
-      color: black
-      cursor: pointer
-    .unfavorite
-      @include link_color(#FFC66D)
-  li:hover .buttons
+    .buttons
+      display: none
+      font-size: 80%
+      color: #aaa
+      float: left
+      margin-left: 20px
+      @include link_color(#aaa)
+      span
+        margin-right: 5px
+      span:last-child
+        margin-right: 0
+      span: hover
+        color: black
+        cursor: pointer
+      .unfavorite
+        @include link_color(#FFC66D)
+  &:hover .buttons
     display: block
   .favorites
     color: #aaa
     img
       vertical-align: middle
-  li
-    position: relative
-    padding: 5px 0
-    border-bottom: solid 1px #eee
-  li:last-child
-    border-bottom: 0
-  li.replied
-    background: url(/images/exclamation.png) no-repeat 680px 10px
 
 
 .users
@@ -170,7 +184,7 @@ a
 .rooms
   .user
     font-size: 80%
-    color: #7299C1
+    color: $color-link-blue
   .time
     font-size: 80%
     color: #aaa

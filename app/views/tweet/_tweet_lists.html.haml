@@ -5,22 +5,10 @@
   - klasses.push("room") if t.room_id
   %li{:class => klasses.join(" "), :id => t.id}
     = hidden_field_tag "room#{t.room_id}", t.room_id, :class => "roomId" if t.room_id
-    = user_icon user, :size=>"40x40"
     .description
       %p.user
+        = user_icon user, :size=>"16x16"
         #{link_to user.screen_name || user.email, user_timeline_url(user.screen_name)}
-      %hr.defloat/
-      .info
-        %p.buttons
-          %span.reply Reply
-          %span.retweet RT
-          - if user == current_user
-            %span.delete= link_to "Del", tweet_delete_url(t.id), :method => :delete, :confirm => t("confirm_to_delete")
-          - elsif t.favorites && t.favorites.any?{|fav| fav.user_id == current_user.id }
-            %span.unfavorite= link_to "★", tweet_unfavorite_url(t.id), :method => :post
-          - else
-            %span.favorite= link_to "★", tweet_favorite_url(t.id), :method => :post
-        %time.time= jp_time t.created_at
       %p.body= linkify sanitize(t.body)
       - if images = extract_images(t.body)
         %p.images
@@ -32,4 +20,15 @@
             - img = fav.user.profile_image_url
             = link_to image_tag(img, :size => "20x20"), user_timeline_url(fav.user.screen_name) if img
           liked this.
+      .info
+        %p.buttons
+          %span.reply Reply
+          %span.retweet RT
+          - if user == current_user
+            %span.delete= link_to "Del", tweet_delete_url(t.id), :method => :delete, :confirm => t("confirm_to_delete")
+          - elsif t.favorites && t.favorites.any?{|fav| fav.user_id == current_user.id }
+            %span.unfavorite= link_to "★", tweet_unfavorite_url(t.id), :method => :post
+          - else
+            %span.favorite= link_to "★", tweet_favorite_url(t.id), :method => :post
+        %time.time= jp_time t.created_at
     %hr.defloat/
