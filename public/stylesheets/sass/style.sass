@@ -6,14 +6,15 @@ $site-width: 820px
 $replied-bg-color: #FDF490
 $button-bg-color: #518CC6
 $bg-color: #ddd
-$color-link-blue: #7299C1
+$color-link-blue: #289C9C
+$color-link-pink: #EA80A8
 
 
 // general
 *
   margin: 0
   padding: 0
-@include link_color(#B02217)
+@include link_color($color-link-pink)
 html
   height: 100%
   margin-bottom: 1px
@@ -102,7 +103,6 @@ a
   position: relative
   padding: 10px 0 5px
   border-bottom: solid 1px #eee
-  line-height: 1.3
 
   &:last-child
     border-bottom: 0
@@ -112,6 +112,7 @@ a
     float: left
     margin-right: 5px
   .user
+    height: 100%
     width: 100px
     float: left
     margin-right: 5px
@@ -237,7 +238,7 @@ a
     .body
       font-size: .9em
       color: #333
-      @include link_color(#4183C4)
+      @include link_color($color-link-blue)
       line-height: 1.7
       h1, h2, h3, h4, h5
         padding-top: 20px
